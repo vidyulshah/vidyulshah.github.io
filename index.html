@@ -4,498 +4,434 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Vidyul Shah — Robotics Software Engineer</title>
+<meta name="description" content="Robotics software engineer building humanoid and UAV autonomy on ROS2, NVIDIA Jetson and embedded Linux."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --bg:#080D1A;
-  --bg2:#0D1424;
-  --bg3:#111928;
-  --card:#131C2E;
-  --card2:#18243A;
-  --border:#1E2D48;
-  --accent:#3B82F6;
-  --accent2:#60A5FA;
-  --accent3:#93C5FD;
-  --gold:#F59E0B;
-  --text:#E8EDF5;
-  --text2:#94A3B8;
-  --text3:#64748B;
-  --green:#10B981;
-  --mono:'DM Mono',monospace;
-  --sans:'DM Sans',sans-serif;
-  --display:'Syne',sans-serif;
+  --paper:#F4F4EF;
+  --paper-2:#EAEBE2;
+  --paper-3:#E2E4D8;
+  --line:#D2D5C6;
+  --line-soft:#E0E2D6;
+  --ink:#161A14;
+  --ink-2:#454B41;
+  --ink-3:#6B7266;
+  --spruce:#1C4A42;
+  --spruce-deep:#12312B;
+  --amber:#D89B1E;
+  --amber-tint:#F2DFA8;
+  --grotesk:'Archivo',system-ui,sans-serif;
+  --serif:'Source Serif 4',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --wrap:1120px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;font-size:16px;}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%;}
 body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--sans);
-  font-weight:300;
-  line-height:1.6;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-weight:400;
+  line-height:1.65;
   overflow-x:hidden;
 }
+a{color:inherit;}
+:focus-visible{outline:2px solid var(--spruce);outline-offset:3px;border-radius:2px;}
 
-/* ── Grid background ─────────────────────────────────── */
-body::before{
-  content:'';
-  position:fixed;
-  inset:0;
-  background-image:
-    linear-gradient(rgba(59,130,246,0.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(59,130,246,0.03) 1px,transparent 1px);
-  background-size:60px 60px;
-  pointer-events:none;
-  z-index:0;
+/* ── shared type ───────────────────────────────── */
+.label{
+  font-family:var(--mono);font-size:.7rem;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);
 }
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 2.5rem;}
 
-/* ── NAV ─────────────────────────────────────────────── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:1.2rem 4rem;
-  background:rgba(8,13,26,0.85);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
+/* ── nav ───────────────────────────────────────── */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(244,244,239,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
 }
-.nav-logo{
-  font-family:var(--display);font-weight:800;font-size:1.15rem;
-  color:var(--text);letter-spacing:-.02em;
+.nav{
+  max-width:var(--wrap);margin:0 auto;padding:.85rem 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;gap:2rem;
 }
-.nav-logo span{color:var(--accent);}
-.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;}
+.brand-mark{width:11px;height:11px;background:var(--amber);flex-shrink:0;}
+.brand-name{
+  font-family:var(--mono);font-size:.78rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;
+}
+.nav-links{display:flex;gap:1.9rem;list-style:none;}
 .nav-links a{
-  font-family:var(--mono);font-size:.78rem;color:var(--text2);
-  text-decoration:none;letter-spacing:.08em;text-transform:uppercase;
-  transition:color .2s;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);text-decoration:none;
+  padding-bottom:2px;border-bottom:1px solid transparent;transition:color .18s,border-color .18s;
 }
-.nav-links a:hover{color:var(--accent2);}
-.nav-cta{
-  font-family:var(--mono);font-size:.75rem;
-  padding:.5rem 1.2rem;border:1px solid var(--accent);
-  color:var(--accent);border-radius:4px;text-decoration:none;
-  transition:all .2s;letter-spacing:.06em;
+.nav-links a:hover,.nav-links a.active{color:var(--ink);border-color:var(--amber);}
+.nav-mail{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;
+  text-decoration:none;color:var(--paper);background:var(--spruce);
+  padding:.5rem 1rem;transition:background .18s;white-space:nowrap;
 }
-.nav-cta:hover{background:var(--accent);color:#fff;}
+.nav-mail:hover{background:var(--spruce-deep);}
 
-/* ── HERO ────────────────────────────────────────────── */
-#hero{
-  min-height:100vh;
-  display:flex;align-items:center;
-  padding:6rem 4rem 4rem;
-  position:relative;
-}
-.hero-inner{max-width:1100px;margin:0 auto;width:100%;}
-.hero-tag{
-  font-family:var(--mono);font-size:.78rem;color:var(--accent);
-  letter-spacing:.12em;text-transform:uppercase;
-  display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;
-  opacity:0;animation:fadeUp .6s .2s forwards;
-}
-.hero-tag::before{content:'';width:32px;height:1px;background:var(--accent);}
+/* ── hero ──────────────────────────────────────── */
+.hero{padding:5.5rem 0 0;}
+.hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:4.5rem;align-items:start;}
+.hero-eyebrow{display:flex;align-items:center;gap:.7rem;margin-bottom:1.6rem;}
+.hero-eyebrow .rule{width:38px;height:2px;background:var(--amber);}
 .hero-name{
-  font-family:var(--display);font-size:clamp(3rem,7vw,6rem);
-  font-weight:800;line-height:1.0;letter-spacing:-.04em;
-  margin-bottom:1rem;
-  opacity:0;animation:fadeUp .6s .35s forwards;
+  font-family:var(--grotesk);font-weight:800;
+  font-size:clamp(3.1rem,8.5vw,6.2rem);line-height:.92;letter-spacing:-.035em;
+  text-transform:uppercase;
 }
-.hero-name .accent{color:var(--accent);}
-.hero-title{
-  font-family:var(--display);font-size:clamp(1rem,2.5vw,1.5rem);
-  font-weight:500;color:var(--text2);letter-spacing:-.01em;
-  margin-bottom:2rem;
-  opacity:0;animation:fadeUp .6s .5s forwards;
+.hero-name .mark{
+  position:relative;display:inline-block;z-index:1;
 }
-.hero-desc{
-  max-width:580px;font-size:1rem;color:var(--text2);line-height:1.75;
-  margin-bottom:2.5rem;
-  opacity:0;animation:fadeUp .6s .65s forwards;
+.hero-name .mark::after{
+  content:'';position:absolute;left:-.05em;right:-.05em;bottom:.06em;height:.24em;
+  background:var(--amber-tint);z-index:-1;
+  transform:scaleX(0);transform-origin:left;
+  animation:swipe .55s .5s cubic-bezier(.2,.7,.3,1) forwards;
 }
-.hero-pills{
-  display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2.5rem;
-  opacity:0;animation:fadeUp .6s .8s forwards;
+.hero-role{
+  font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2.2vw,1.5rem);
+  color:var(--spruce);margin:1.4rem 0 1.5rem;line-height:1.4;
 }
-.pill{
-  font-family:var(--mono);font-size:.72rem;padding:.35rem .85rem;
-  border:1px solid var(--border);color:var(--text3);border-radius:20px;
-  letter-spacing:.04em;
-}
-.pill.hot{border-color:rgba(59,130,246,.4);color:var(--accent3);}
-.hero-actions{
-  display:flex;gap:1rem;flex-wrap:wrap;
-  opacity:0;animation:fadeUp .6s .95s forwards;
-}
+.hero-desc{font-size:1.05rem;color:var(--ink-2);max-width:34em;margin-bottom:2.2rem;}
+.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;}
 .btn{
-  font-family:var(--mono);font-size:.8rem;padding:.75rem 1.75rem;
-  border-radius:4px;text-decoration:none;letter-spacing:.05em;
-  transition:all .22s;display:inline-block;
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;
+  padding:.8rem 1.5rem;text-decoration:none;display:inline-block;transition:all .18s;
 }
-.btn-primary{background:var(--accent);color:#fff;border:1px solid var(--accent);}
-.btn-primary:hover{background:#2563EB;border-color:#2563EB;}
-.btn-secondary{border:1px solid var(--border);color:var(--text2);}
-.btn-secondary:hover{border-color:var(--accent);color:var(--accent);}
-.hero-stats{
-  display:flex;gap:3rem;margin-top:3.5rem;padding-top:2rem;
-  border-top:1px solid var(--border);
-  opacity:0;animation:fadeUp .6s 1.1s forwards;
-}
-.stat-num{
-  font-family:var(--display);font-size:2rem;font-weight:800;
-  color:var(--accent);line-height:1;
-}
-.stat-label{font-family:var(--mono);font-size:.72rem;color:var(--text3);
-  letter-spacing:.08em;text-transform:uppercase;margin-top:.35rem;}
+.btn-solid{background:var(--spruce);color:var(--paper);}
+.btn-solid:hover{background:var(--spruce-deep);}
+.btn-line{border:1px solid var(--line);color:var(--ink-2);}
+.btn-line:hover{border-color:var(--spruce);color:var(--spruce);}
 
-/* ── SECTION COMMON ──────────────────────────────────── */
-section{padding:5rem 4rem;position:relative;z-index:1;}
-.section-inner{max-width:1100px;margin:0 auto;}
-.section-label{
-  font-family:var(--mono);font-size:.72rem;color:var(--accent);
-  letter-spacing:.15em;text-transform:uppercase;
-  display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;
+/* spec sheet card */
+.spec{border:1px solid var(--line);background:var(--paper-2);}
+.spec-head{
+  padding:.6rem 1.1rem;border-bottom:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
 }
-.section-label::before{content:'';width:24px;height:1px;background:var(--accent);}
-.section-title{
-  font-family:var(--display);font-size:clamp(1.8rem,3.5vw,2.6rem);
-  font-weight:700;letter-spacing:-.03em;margin-bottom:3rem;
+.spec-row{
+  display:grid;grid-template-columns:8.5rem 1fr;gap:1rem;
+  padding:.7rem 1.1rem;border-bottom:1px solid var(--line-soft);
+  font-size:.9rem;
 }
+.spec-row:last-child{border-bottom:0;}
+.spec-key{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding-top:.22rem;}
+.spec-val{color:var(--ink);}
+.spec-val em{font-style:italic;color:var(--ink-2);}
+.spec-link{
+  font-family:var(--mono);font-size:.78rem;color:var(--spruce);
+  text-decoration:none;border-bottom:1px solid var(--line);transition:border-color .18s;
+}
+.spec-link:hover{border-color:var(--spruce);}
 
-/* ── ABOUT ───────────────────────────────────────────── */
-#about{background:var(--bg2);}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
-.about-text p{color:var(--text2);line-height:1.85;margin-bottom:1.25rem;font-size:.98rem;}
-.about-text p strong{color:var(--text);}
-.about-text .open-to{
-  margin-top:1.5rem;padding:1rem 1.25rem;
-  border:1px solid rgba(59,130,246,.3);border-radius:6px;
-  background:rgba(59,130,246,.05);
-  font-family:var(--mono);font-size:.8rem;color:var(--accent3);
-  line-height:1.7;
+/* telemetry band */
+.telemetry{margin-top:4.5rem;background:var(--spruce);color:var(--paper);}
+.telemetry-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
 }
-.about-highlights{display:flex;flex-direction:column;gap:1rem;}
-.highlight-card{
-  padding:1.25rem 1.5rem;background:var(--card);border:1px solid var(--border);
-  border-radius:8px;transition:border-color .2s;
+.tele{padding:2rem 1.5rem;border-left:1px solid rgba(244,244,239,.16);}
+.tele:first-child{border-left:0;}
+.tele-num{
+  font-family:var(--grotesk);font-weight:700;font-size:2.3rem;line-height:1;
+  color:var(--amber);letter-spacing:-.02em;
 }
-.highlight-card:hover{border-color:rgba(59,130,246,.4);}
-.hc-num{
-  font-family:var(--display);font-size:1.8rem;font-weight:800;
-  color:var(--accent);line-height:1;
-}
-.hc-text{font-size:.88rem;color:var(--text2);margin-top:.3rem;}
-
-/* ── EXPERIENCE ──────────────────────────────────────── */
-#experience{background:var(--bg);}
-.timeline{position:relative;}
-.timeline::before{
-  content:'';position:absolute;left:0;top:0;bottom:0;
-  width:1px;background:var(--border);
-}
-.exp-item{
-  padding-left:2.5rem;margin-bottom:3rem;position:relative;
-  opacity:0;transform:translateX(-20px);transition:all .5s;
-}
-.exp-item.visible{opacity:1;transform:translateX(0);}
-.exp-item::before{
-  content:'';position:absolute;left:-4px;top:8px;
-  width:9px;height:9px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 12px rgba(59,130,246,.5);
-}
-.exp-item.past::before{background:var(--border);}
-.exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;}
-.exp-title{font-family:var(--display);font-size:1.05rem;font-weight:700;}
-.exp-date{
-  font-family:var(--mono);font-size:.72rem;color:var(--text3);
-  letter-spacing:.05em;padding:.25rem .65rem;background:var(--card);
-  border:1px solid var(--border);border-radius:3px;white-space:nowrap;
-}
-.exp-company{
-  font-family:var(--mono);font-size:.8rem;color:var(--accent2);
-  margin:.3rem 0 .8rem;
-}
-.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:.45rem;}
-.exp-bullets li{
-  font-size:.9rem;color:var(--text2);padding-left:1.1rem;position:relative;
-}
-.exp-bullets li::before{
-  content:'▸';position:absolute;left:0;color:var(--accent);font-size:.75rem;top:.1rem;
-}
-.exp-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem;}
-.exp-tag{
-  font-family:var(--mono);font-size:.68rem;padding:.2rem .6rem;
-  background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);
-  color:var(--accent3);border-radius:3px;letter-spacing:.03em;
+.tele-label{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(244,244,239,.7);margin-top:.55rem;line-height:1.5;
 }
 
-/* ── SKILLS ──────────────────────────────────────────── */
-#skills{background:var(--bg2);}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;}
-.skill-group{
-  padding:1.5rem;background:var(--card);border:1px solid var(--border);
-  border-radius:8px;transition:border-color .2s, transform .2s;
+/* ── sections ──────────────────────────────────── */
+.sec{padding:5.5rem 0;border-bottom:1px solid var(--line);}
+.sec.alt{background:var(--paper-2);}
+.sec-head{margin-bottom:3rem;max-width:46rem;}
+.sec-title{
+  font-family:var(--grotesk);font-weight:700;letter-spacing:-.025em;
+  font-size:clamp(1.75rem,3.4vw,2.5rem);line-height:1.1;margin-top:.7rem;
 }
-.skill-group:hover{border-color:rgba(59,130,246,.4);transform:translateY(-2px);}
-.skill-group-title{
-  font-family:var(--mono);font-size:.72rem;color:var(--accent);
-  letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem;
-  display:flex;align-items:center;gap:.5rem;
-}
-.skill-group-title::after{content:'';flex:1;height:1px;background:var(--border);}
-.skill-chips{display:flex;flex-wrap:wrap;gap:.4rem;}
-.skill-chip{
-  font-size:.78rem;padding:.28rem .65rem;background:var(--card2);
-  border:1px solid var(--border);border-radius:3px;color:var(--text2);
-  transition:all .15s;
-}
-.skill-chip:hover{border-color:var(--accent);color:var(--text);}
-.skill-chip.star{border-color:rgba(59,130,246,.4);color:var(--accent3);}
+.sec-note{color:var(--ink-2);margin-top:.9rem;font-size:1rem;}
 
-/* ── PROJECTS ────────────────────────────────────────── */
-#projects{background:var(--bg);}
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;}
-.project-card{
-  padding:1.75rem;background:var(--card);border:1px solid var(--border);
-  border-radius:8px;transition:all .25s;position:relative;overflow:hidden;
+/* ── about ─────────────────────────────────────── */
+.about{display:grid;grid-template-columns:1.15fr 1fr;gap:4rem;align-items:start;}
+.prose p{margin-bottom:1.15rem;color:var(--ink-2);font-size:1.02rem;}
+.prose strong{color:var(--ink);font-weight:600;}
+.relocate{
+  margin-top:1.8rem;padding:1.1rem 1.25rem;
+  border-left:3px solid var(--amber);background:var(--paper-3);
+  font-size:.92rem;color:var(--ink-2);
 }
-.project-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  transform:scaleX(0);transform-origin:left;transition:transform .3s;
+.sec.alt .relocate{background:var(--paper);}
+.relocate strong{color:var(--ink);}
+.metrics{border-top:1px solid var(--line);}
+.metric{
+  display:grid;grid-template-columns:5.5rem 1fr;gap:1.25rem;
+  padding:1.25rem .25rem;border-bottom:1px solid var(--line);align-items:start;
 }
-.project-card:hover::before{transform:scaleX(1);}
-.project-card:hover{border-color:rgba(59,130,246,.3);transform:translateY(-4px);}
-.project-num{
-  font-family:var(--mono);font-size:.68rem;color:var(--text3);
-  letter-spacing:.1em;margin-bottom:.75rem;
+.metric-num{
+  font-family:var(--grotesk);font-weight:700;font-size:1.7rem;
+  color:var(--spruce);line-height:1;letter-spacing:-.02em;
 }
-.project-title{
-  font-family:var(--display);font-size:1.05rem;font-weight:700;
-  margin-bottom:.5rem;line-height:1.25;
-}
-.project-tech{
-  font-family:var(--mono);font-size:.72rem;color:var(--accent);
-  margin-bottom:.85rem;letter-spacing:.03em;
-}
-.project-desc{font-size:.88rem;color:var(--text2);line-height:1.7;}
+.metric-txt{font-size:.92rem;color:var(--ink-2);}
 
-/* ── EDUCATION ───────────────────────────────────────── */
-#education{background:var(--bg2);}
-.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
-.edu-card{
-  padding:2rem;background:var(--card);border:1px solid var(--border);
-  border-radius:8px;transition:border-color .2s;
+/* ── experience ────────────────────────────────── */
+.roles{border-top:1px solid var(--line);}
+.role{
+  display:grid;grid-template-columns:9.5rem 1fr;gap:2.5rem;
+  padding:2.5rem 0;border-bottom:1px solid var(--line);
+  opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;
 }
-.edu-card:hover{border-color:rgba(59,130,246,.4);}
-.edu-degree{font-family:var(--display);font-size:1.1rem;font-weight:700;margin-bottom:.4rem;}
-.edu-school{font-family:var(--mono);font-size:.8rem;color:var(--accent2);margin-bottom:.3rem;}
-.edu-date{font-family:var(--mono);font-size:.72rem;color:var(--text3);margin-bottom:1rem;}
-.edu-desc{font-size:.88rem;color:var(--text2);line-height:1.7;}
-.edu-scores{margin-top:1rem;display:flex;flex-direction:column;gap:.4rem;}
-.edu-score{
-  display:flex;justify-content:space-between;align-items:center;
-  font-family:var(--mono);font-size:.75rem;padding:.4rem .6rem;
-  background:var(--card2);border-radius:3px;
+.role.visible{opacity:1;transform:none;}
+.role-when{position:relative;padding-left:1.1rem;}
+.role-when::before{
+  content:'';position:absolute;left:0;top:.45rem;width:6px;height:6px;background:var(--line);
 }
-.edu-score-label{color:var(--text2);}
-.edu-score-val{color:var(--green);font-weight:500;}
+.role.now .role-when::before{background:var(--amber);box-shadow:0 0 0 3px var(--amber-tint);}
+.role-date{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--ink-3);line-height:1.6;}
+.role-now-tag{
+  display:inline-block;margin-top:.5rem;font-family:var(--mono);font-size:.62rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--spruce);
+  border:1px solid var(--spruce);padding:.12rem .4rem;
+}
+.role-title{font-family:var(--grotesk);font-weight:700;font-size:1.15rem;letter-spacing:-.01em;line-height:1.3;}
+.role-org{font-family:var(--mono);font-size:.78rem;color:var(--spruce);margin:.4rem 0 1.1rem;letter-spacing:.02em;}
+.role ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
+.role li{position:relative;padding-left:1.15rem;font-size:.95rem;color:var(--ink-2);}
+.role li::before{content:'';position:absolute;left:0;top:.62em;width:6px;height:1px;background:var(--amber);}
+.tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:1.2rem;}
+.tag{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.03em;
+  padding:.2rem .55rem;border:1px solid var(--line);color:var(--ink-3);background:var(--paper);
+}
+.sec.alt .tag{background:var(--paper-2);}
 
-/* ── PUBLICATION ─────────────────────────────────────── */
-#publication{background:var(--bg);}
-.pub-card{
-  padding:2rem 2.5rem;background:var(--card);border:1px solid var(--border);
-  border-radius:8px;border-left:3px solid var(--accent);max-width:800px;
+/* ── skills ────────────────────────────────────── */
+.skills{border-top:1px solid var(--line);}
+.skill-row{
+  display:grid;grid-template-columns:13rem 1fr;gap:2rem;
+  padding:1.3rem .25rem;border-bottom:1px solid var(--line);align-items:baseline;
 }
-.pub-venue{
-  font-family:var(--mono);font-size:.72rem;color:var(--accent);
-  letter-spacing:.08em;text-transform:uppercase;margin-bottom:.75rem;
-}
-.pub-title{font-family:var(--display);font-size:1.15rem;font-weight:700;
-  line-height:1.3;margin-bottom:.75rem;}
-.pub-authors{font-size:.85rem;color:var(--text2);margin-bottom:.5rem;}
-.pub-authors strong{color:var(--text);}
-.pub-doi{font-family:var(--mono);font-size:.75rem;color:var(--accent2);}
-.pub-doi a{color:inherit;text-decoration:none;}
-.pub-doi a:hover{text-decoration:underline;}
+.skill-name{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem .55rem;}
+.chip{font-size:.9rem;color:var(--ink-2);}
+.chip::after{content:'·';margin-left:.55rem;color:var(--line);}
+.chip:last-child::after{display:none;}
+.chip.key{color:var(--spruce);font-weight:600;}
 
-/* ── CERTIFICATIONS ──────────────────────────────────── */
-#certifications{background:var(--bg2);}
-.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;}
-.cert-card{
-  padding:1.25rem 1.5rem;background:var(--card);border:1px solid var(--border);
-  border-radius:6px;transition:all .2s;
+/* ── projects ──────────────────────────────────── */
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);}
+.project{
+  padding:2rem 2rem 2.2rem 0;border-bottom:1px solid var(--line);
 }
-.cert-card:hover{border-color:rgba(59,130,246,.4);}
-.cert-name{font-size:.95rem;font-weight:500;margin-bottom:.3rem;}
-.cert-issuer{font-family:var(--mono);font-size:.75rem;color:var(--accent2);margin-bottom:.2rem;}
-.cert-date{font-family:var(--mono);font-size:.7rem;color:var(--text3);}
+.project:nth-child(even){padding-left:2rem;border-left:1px solid var(--line);}
+.project-when{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);}
+.project-title{font-family:var(--grotesk);font-weight:700;font-size:1.1rem;line-height:1.3;margin:.6rem 0 .5rem;letter-spacing:-.01em;}
+.project-stack{font-family:var(--mono);font-size:.72rem;color:var(--spruce);margin-bottom:.85rem;line-height:1.6;}
+.project-desc{font-size:.94rem;color:var(--ink-2);}
 
-/* ── HONORS ──────────────────────────────────────────── */
-#honors{background:var(--bg);}
-.honors-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;}
-.honor-card{
-  padding:1.5rem;background:var(--card);border:1px solid var(--border);
-  border-radius:6px;display:flex;gap:1rem;align-items:flex-start;
+/* ── education + publication ───────────────────── */
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.edu-item{border-top:2px solid var(--ink);padding-top:1.3rem;}
+.edu-degree{font-family:var(--grotesk);font-weight:700;font-size:1.15rem;letter-spacing:-.01em;}
+.edu-school{font-family:var(--mono);font-size:.76rem;color:var(--spruce);margin:.45rem 0 .2rem;}
+.edu-date{font-family:var(--mono);font-size:.7rem;color:var(--ink-3);letter-spacing:.06em;}
+.edu-desc{font-size:.95rem;color:var(--ink-2);margin:1rem 0 1.1rem;}
+.edu-line{
+  display:flex;justify-content:space-between;gap:1rem;align-items:baseline;
+  padding:.5rem 0;border-top:1px solid var(--line-soft);font-size:.88rem;color:var(--ink-2);
 }
-.honor-icon{
-  font-size:1.5rem;width:42px;height:42px;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(245,158,11,.1);border-radius:6px;flex-shrink:0;
-}
-.honor-name{font-size:.92rem;font-weight:500;margin-bottom:.25rem;}
-.honor-body{font-family:var(--mono);font-size:.72rem;color:var(--accent2);margin-bottom:.2rem;}
-.honor-date{font-family:var(--mono);font-size:.7rem;color:var(--text3);}
+.edu-line span:last-child{font-family:var(--mono);font-size:.78rem;color:var(--spruce);white-space:nowrap;}
 
-/* ── CONTACT ─────────────────────────────────────────── */
-#contact{background:var(--bg2);text-align:center;}
-#contact .section-label{justify-content:center;}
-#contact .section-label::before{display:none;}
+.paper{
+  border-left:3px solid var(--spruce);padding:.2rem 0 .2rem 1.8rem;max-width:52rem;
+}
+.paper-venue{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);}
+.paper-title{font-family:var(--serif);font-style:italic;font-size:1.35rem;line-height:1.35;margin:.7rem 0 .8rem;}
+.paper-authors{font-size:.92rem;color:var(--ink-2);}
+.paper-authors strong{color:var(--ink);font-weight:600;}
+.paper-doi{font-family:var(--mono);font-size:.75rem;margin-top:.7rem;}
+.paper-doi a{color:var(--spruce);text-decoration:none;border-bottom:1px solid var(--line);}
+.paper-doi a:hover{border-color:var(--spruce);}
+
+/* ── credentials + honours ─────────────────────── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;}
+.list{border-top:1px solid var(--line);}
+.list-item{
+  display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:baseline;
+  padding:1rem .25rem;border-bottom:1px solid var(--line);
+}
+.list-name{font-size:.98rem;}
+.list-sub{font-family:var(--mono);font-size:.72rem;color:var(--ink-3);margin-top:.25rem;line-height:1.6;}
+.list-meta{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--spruce);white-space:nowrap;}
+.list-meta.pending{color:var(--amber);}
+
+/* ── contact ───────────────────────────────────── */
+.contact{background:var(--spruce-deep);color:var(--paper);padding:6rem 0 5rem;border-bottom:0;}
+.contact .label{color:rgba(244,244,239,.6);}
 .contact-title{
-  font-family:var(--display);font-size:clamp(2rem,4vw,3rem);
-  font-weight:800;letter-spacing:-.04em;margin-bottom:1rem;
+  font-family:var(--grotesk);font-weight:800;text-transform:uppercase;
+  font-size:clamp(2rem,5vw,3.4rem);line-height:1;letter-spacing:-.03em;margin:.9rem 0 1.2rem;
 }
-.contact-sub{color:var(--text2);max-width:500px;margin:0 auto 2.5rem;font-size:.98rem;}
-.contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;}
-.contact-link{
-  display:flex;align-items:center;gap:.6rem;
-  padding:.85rem 1.5rem;border:1px solid var(--border);border-radius:6px;
-  text-decoration:none;color:var(--text2);font-family:var(--mono);font-size:.8rem;
-  transition:all .22s;background:var(--card);
+.contact-title em{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;color:var(--amber);letter-spacing:-.01em;}
+.contact-sub{color:rgba(244,244,239,.75);max-width:34em;font-size:1.02rem;}
+.contact-links{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3rem;border-top:1px solid rgba(244,244,239,.2);}
+.clink{
+  display:flex;align-items:center;gap:.6rem;padding:1.4rem 1.1rem 1.4rem 0;
+  border-bottom:1px solid rgba(244,244,239,.2);text-decoration:none;
+  color:var(--paper);font-family:var(--mono);font-size:.74rem;transition:color .18s;
 }
-.contact-link:hover{border-color:var(--accent);color:var(--accent);}
-.contact-link svg{width:16px;height:16px;flex-shrink:0;}
-.open-badge{
-  display:inline-flex;align-items:center;gap:.5rem;
-  padding:.6rem 1.25rem;
-  background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);
-  border-radius:20px;font-family:var(--mono);font-size:.78rem;color:var(--green);
+.clink+.clink{padding-left:1.1rem;border-left:1px solid rgba(244,244,239,.2);}
+.clink:hover{color:var(--amber);}
+.clink svg{width:16px;height:16px;flex-shrink:0;}
+.status{
+  display:inline-flex;align-items:center;gap:.6rem;margin-top:2.5rem;
+  font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--amber);
 }
-.open-badge::before{
-  content:'';width:7px;height:7px;border-radius:50%;
-  background:var(--green);animation:pulse 2s infinite;
-}
-
-/* ── FOOTER ──────────────────────────────────────────── */
+.status::before{content:'';width:7px;height:7px;background:var(--amber);animation:blink 2.4s infinite;}
 footer{
-  text-align:center;padding:1.5rem;
-  border-top:1px solid var(--border);
-  font-family:var(--mono);font-size:.72rem;color:var(--text3);
-  position:relative;z-index:1;
+  background:var(--spruce-deep);color:rgba(244,244,239,.5);
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;
+  padding:1.5rem 0 2.5rem;
 }
+.foot{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
 
-/* ── ANIMATIONS ──────────────────────────────────────── */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(20px);}
-  to{opacity:1;transform:translateY(0);}
-}
-@keyframes pulse{
-  0%,100%{opacity:1;}50%{opacity:.4;}
-}
+@keyframes swipe{to{transform:scaleX(1);}}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.25;}}
 
-/* ── RESPONSIVE ──────────────────────────────────────── */
-@media(max-width:900px){
-  nav{padding:1rem 1.5rem;}
+/* ── responsive ────────────────────────────────── */
+@media(max-width:980px){
+  .wrap,.nav{padding-left:1.5rem;padding-right:1.5rem;}
   .nav-links{display:none;}
-  section{padding:4rem 1.5rem;}
-  #hero{padding:6rem 1.5rem 3rem;}
-  .about-grid,.edu-grid{grid-template-columns:1fr;}
-  .hero-stats{gap:2rem;}
+  .hero{padding-top:3.5rem;}
+  .hero-grid,.about,.edu,.two-col{grid-template-columns:1fr;gap:2.5rem;}
+  .telemetry-grid{grid-template-columns:1fr 1fr;}
+  .tele{border-left:0;border-top:1px solid rgba(244,244,239,.16);}
+  .tele:nth-child(2n){border-left:1px solid rgba(244,244,239,.16);}
+  .tele:nth-child(-n+2){border-top:0;}
+  .projects{grid-template-columns:1fr;}
+  .project,.project:nth-child(even){padding:1.8rem 0;border-left:0;}
+  .contact-links{grid-template-columns:1fr;}
+  .clink+.clink{border-left:0;}
+  .clink,.clink+.clink{padding:1.1rem 0;border-left:0;}
+  .sec{padding:3.5rem 0;}
+}
+@media(max-width:640px){
+  .role{grid-template-columns:1fr;gap:1rem;}
+  .role-when{padding-left:0;}
+  .role-when::before{display:none;}
+  .skill-row,.metric{grid-template-columns:1fr;gap:.6rem;}
+  .spec-row{grid-template-columns:1fr;gap:.2rem;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  html{scroll-behavior:auto;}
+  .role{opacity:1;transform:none;}
+  .hero-name .mark::after{transform:scaleX(1);}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">VS<span>.</span></div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a class="nav-cta" href="mailto:vidyulshah14@outlook.com">Hire Me</a>
-</nav>
+<header>
+  <nav class="nav">
+    <a class="brand" href="#top"><span class="brand-mark"></span><span class="brand-name">Vidyul Shah</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-mail" href="mailto:vidyulshah14@outlook.com">Get in touch</a>
+  </nav>
+</header>
 
 <!-- HERO -->
-<section id="hero">
-  <div class="hero-inner">
-    <div class="hero-tag">Robotics Software Engineer</div>
-    <h1 class="hero-name">Vidyul<br/><span class="accent">Shah.</span></h1>
-    <p class="hero-title">ROS2 · NVIDIA Jetson · Embedded Linux · Humanoid Robots</p>
-    <p class="hero-desc">
-      I build autonomous robotic systems — from ROS2 architecture down to the physical hardware that executes it.
-      Currently engineering humanoid robot autonomy at <strong>Indus Humanoid Lab</strong>, Bangalore.
-    </p>
-    <div class="hero-pills">
-      <span class="pill hot">ROS2</span>
-      <span class="pill hot">NVIDIA Jetson</span>
-      <span class="pill hot">Embedded Linux</span>
-      <span class="pill hot">Motion Planning</span>
-      <span class="pill">Python</span>
-      <span class="pill">C++</span>
-      <span class="pill">UAV Systems</span>
-      <span class="pill">Computer Vision</span>
-      <span class="pill">Sensor Fusion</span>
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow"><span class="rule"></span><span class="label">Robotics Software Engineer</span></div>
+        <h1 class="hero-name">Vidyul<br/><span class="mark">Shah</span></h1>
+        <p class="hero-role">I build autonomous systems end to end — from the ROS2 architecture down to the hardware that executes it.</p>
+        <p class="hero-desc">Four years across humanoid autonomy, UAV flight control and safety-critical avionics. I write the nodes, flash the Jetson, debug the bus, and have machined the parts those systems move.</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="mailto:vidyulshah14@outlook.com">Email me</a>
+          <a class="btn btn-line" href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="btn btn-line" href="https://linkedin.com/in/vidyul-shah" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+
+      <div class="spec">
+        <div class="spec-head">
+          <span class="label">Profile</span>
+          <span class="label">Rev. 2026</span>
+        </div>
+        <div class="spec-row"><span class="spec-key">Based in</span><span class="spec-val">Bangalore, India</span></div>
+        <div class="spec-row"><span class="spec-key">Now</span><span class="spec-val">Software Engineer, <em>Indus Humanoid Lab</em></span></div>
+        <div class="spec-row"><span class="spec-key">Focus</span><span class="spec-val">Humanoid autonomy · Motion planning · Sensor fusion</span></div>
+        <div class="spec-row"><span class="spec-key">Platforms</span><span class="spec-val">NVIDIA Jetson Nano / Xavier / Orin · Embedded Linux</span></div>
+        <div class="spec-row"><span class="spec-key">Languages</span><span class="spec-val">C++ · Python · Embedded C</span></div>
+        <div class="spec-row"><span class="spec-key">Education</span><span class="spec-val">MSc Robotics, Heriot-Watt University</span></div>
+        <div class="spec-row"><span class="spec-key">Code</span><span class="spec-val"><a class="spec-link" href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener">github.com/YOUR-USERNAME ↗</a></span></div>
+        <div class="spec-row"><span class="spec-key">Status</span><span class="spec-val">Open to roles worldwide, including relocation</span></div>
+      </div>
     </div>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="mailto:vidyulshah14@outlook.com">Get In Touch</a>
-      <a class="btn btn-secondary" href="https://linkedin.com/in/vidyul-shah" target="_blank">LinkedIn ↗</a>
-    </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num">4+</div>
-        <div class="stat-label">Years Experience</div>
-      </div>
-      <div>
-        <div class="stat-num">30%</div>
-        <div class="stat-label">Latency Reduction</div>
-      </div>
-      <div>
-        <div class="stat-num">3×</div>
-        <div class="stat-label">UAV Test Throughput</div>
-      </div>
-      <div>
-        <div class="stat-num">6+</div>
-        <div class="stat-label">Companies</div>
+  </div>
+
+  <div class="telemetry">
+    <div class="wrap" style="padding-left:0;padding-right:0;">
+      <div class="telemetry-grid">
+        <div class="tele"><div class="tele-num">4+</div><div class="tele-label">Years in robotics</div></div>
+        <div class="tele"><div class="tele-num">30%</div><div class="tele-label">Lower system latency</div></div>
+        <div class="tele"><div class="tele-num">3×</div><div class="tele-label">UAV test throughput</div></div>
+        <div class="tele"><div class="tele-num">&lt;10cm</div><div class="tele-label">Indoor localisation accuracy</div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about">
-  <div class="section-inner">
-    <div class="section-label">About Me</div>
-    <h2 class="section-title">Building intelligence<br/>for the physical world.</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>I build autonomous robotic systems — from ROS2 architecture down to the physical hardware that executes it. With 4+ years of experience, I specialise in deploying intelligent systems on <strong>NVIDIA Jetson platforms</strong> (Nano, Xavier, Orin) within embedded Linux environments.</p>
-        <p>What sets me apart is <strong>full hardware-software ownership</strong>: I write the ROS2 nodes, flash the Jetson, debug the peripherals (SPI/I²C/CAN), and have machined the physical parts those systems control — including CNC fabrication of humanoid skeletal frames and vacuum-pour silicone dermis casting.</p>
-        <p>My work spans humanoid robot autonomy at Indus Humanoid Lab, UAV flight-control systems at Yottec Systems, and legacy avionics modernisation at Alchemy Techsol. I hold an <strong>MSc in Robotics from Heriot-Watt University</strong> (Edinburgh, UK) and have a published paper at ACM ICMI 2021.</p>
-        <div class="open-to">
-          🌍 &nbsp;Open to relocation: <strong>Germany · Netherlands · Singapore · United Kingdom · Australia</strong><br/>
-          Also open to remote roles globally.
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">About</span>
+      <h2 class="sec-title">Intelligence that has to survive contact with real hardware.</h2>
+    </div>
+    <div class="about">
+      <div class="prose">
+        <p>I deploy intelligent systems on <strong>NVIDIA Jetson platforms</strong> inside embedded Linux environments, where timing, thermals and a noisy bus matter as much as the algorithm. Most of my work sits at the seam between software that plans and hardware that moves.</p>
+        <p>What I bring is <strong>full hardware–software ownership</strong>. I write the ROS2 nodes, flash the board, debug the peripherals over SPI, I²C and CAN, and have machined the physical parts those systems control — including CNC-fabricated humanoid skeletal frames and vacuum-poured silicone dermis.</p>
+        <p>That range comes from working across humanoid autonomy at Indus Humanoid Lab, UAV flight control at Yottec Systems, and legacy avionics modernisation at Alchemy Techsol. I hold an <strong>MSc in Robotics from Heriot-Watt University</strong> in Edinburgh, with a paper published at ACM ICMI 2021.</p>
+        <div class="relocate">
+          Open to relocation: <strong>Germany · Netherlands · Singapore · United Kingdom · Australia</strong>. Remote roles considered globally.
         </div>
       </div>
-      <div class="about-highlights">
-        <div class="highlight-card">
-          <div class="hc-num">30%</div>
-          <div class="hc-text">System latency reduced through optimised ROS2 node communication and DDS QoS tuning on NVIDIA Jetson Orin</div>
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-num">30%</div>
+          <div class="metric-txt">Lower end-to-end latency through optimised ROS2 node communication and DDS QoS tuning on Jetson Orin.</div>
         </div>
-        <div class="highlight-card">
-          <div class="hc-num">3×</div>
-          <div class="hc-text">UAV test throughput increase by building ROS-enabled Automatic Test Equipment for flight-control verification</div>
+        <div class="metric">
+          <div class="metric-num">3×</div>
+          <div class="metric-txt">Higher UAV test throughput after building ROS-enabled automatic test equipment for flight-control verification.</div>
         </div>
-        <div class="highlight-card">
-          <div class="hc-num">25%</div>
-          <div class="hc-text">Execution performance improvement after migrating 10,000+ lines of Ada 95 avionics code to C++ ROS modules</div>
+        <div class="metric">
+          <div class="metric-num">25%</div>
+          <div class="metric-txt">Faster execution after migrating 10,000+ lines of Ada 95 avionics code into C++ ROS modules.</div>
         </div>
-        <div class="highlight-card">
-          <div class="hc-num">66%</div>
-          <div class="hc-text">Processing speed improvement in satellite link-budget analysis modules at Asteria Space & Satellites</div>
+        <div class="metric">
+          <div class="metric-num">66%</div>
+          <div class="metric-txt">Faster processing in satellite link-budget analysis modules at Asteria Space &amp; Satellites.</div>
         </div>
       </div>
     </div>
@@ -503,210 +439,172 @@ footer{
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-inner">
-    <div class="section-label">Career</div>
-    <h2 class="section-title">Work Experience</h2>
-    <div class="timeline">
+<section class="sec alt" id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">Experience</span>
+      <h2 class="sec-title">Where the work has taken me.</h2>
+    </div>
+    <div class="roles">
 
-      <div class="exp-item">
-        <div class="exp-header">
-          <div class="exp-title">Software Engineer & Developer</div>
-          <div class="exp-date">Mar 2025 – Present</div>
+      <article class="role now">
+        <div class="role-when">
+          <div class="role-date">Mar 2025 —<br/>Present</div>
+          <span class="role-now-tag">Current</span>
         </div>
-        <div class="exp-company">Indus Humanoid Lab · Bangalore, India · Full-time</div>
-        <ul class="exp-bullets">
-          <li>Architected modular ROS2 autonomy frameworks for humanoid robots, integrating MoveIt motion planning and real-time perception on NVIDIA Jetson Orin.</li>
-          <li>Deployed UWB-based indoor localisation achieving sub-10 cm positioning accuracy for autonomous obstacle avoidance in dynamic environments.</li>
-          <li>Reduced end-to-end system latency by 30% via optimised ROS2 node communication and DDS QoS tuning.</li>
-          <li>Built OpenAI-powered NLP interface through custom ROS2 services, enabling voice-commanded humanoid control without GUI interaction.</li>
-          <li>Synchronised software with 15+ actuators during mechanical assembly and calibration for full-body humanoid motion control.</li>
-          <li>Led end-to-end R&D of high-fidelity humanoid face — CNC fabrication, multi-layer silicone dermis engineering, and multi-DoF actuator firmware.</li>
-        </ul>
-        <div class="exp-tags">
-          <span class="exp-tag">ROS2</span><span class="exp-tag">NVIDIA Jetson</span>
-          <span class="exp-tag">MoveIt</span><span class="exp-tag">UWB</span>
-          <span class="exp-tag">OpenAI API</span><span class="exp-tag">Qt</span>
-          <span class="exp-tag">Embedded Linux</span><span class="exp-tag">C++</span>
+        <div>
+          <h3 class="role-title">Software Engineer &amp; Developer</h3>
+          <div class="role-org">Indus Humanoid Lab · Bangalore, India</div>
+          <ul>
+            <li>Architected modular ROS2 autonomy frameworks for humanoid robots, integrating MoveIt motion planning and real-time perception on NVIDIA Jetson Orin.</li>
+            <li>Deployed UWB-based indoor localisation reaching sub-10 cm positioning accuracy for obstacle avoidance in dynamic environments.</li>
+            <li>Reduced end-to-end system latency by 30% through optimised ROS2 node communication and DDS QoS tuning.</li>
+            <li>Built an OpenAI-powered natural language interface over custom ROS2 services, enabling voice-commanded control without a GUI.</li>
+            <li>Synchronised software with 15+ actuators during mechanical assembly and calibration for full-body motion control.</li>
+            <li>Led R&amp;D of a high-fidelity humanoid face: CNC fabrication, multi-layer silicone dermis, and multi-DoF actuator firmware.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">ROS2</span><span class="tag">NVIDIA Jetson</span><span class="tag">MoveIt</span><span class="tag">UWB</span>
+            <span class="tag">OpenAI API</span><span class="tag">Qt</span><span class="tag">Embedded Linux</span><span class="tag">C++</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="exp-item past">
-        <div class="exp-header">
-          <div class="exp-title">Embedded Software Engineer – Aerospace & Defense</div>
-          <div class="exp-date">Sep 2024 – Mar 2025</div>
+      <article class="role">
+        <div class="role-when"><div class="role-date">Sep 2024 —<br/>Mar 2025</div></div>
+        <div>
+          <h3 class="role-title">Embedded Software Engineer — Aerospace &amp; Defence</h3>
+          <div class="role-org">Alchemy Techsol · Bangalore, India</div>
+          <ul>
+            <li>Migrated 10,000+ lines of Ada 95 avionics code to C++ ROS modules, improving execution performance by 25% and enabling cross-platform deployment.</li>
+            <li>Integrated MIL-STD-1553B, RS-422 and RS-232 into ROS via custom bridge nodes for real-time transfer in safety-critical systems.</li>
+            <li>Cut verification cycle time by 40% with hardware-independent ROS simulation and test frameworks.</li>
+            <li>Acted as interim lead for three engineers, coordinating sprint deliverables and running ROS performance audits with rqt_graph and rosbag.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">ROS</span><span class="tag">C++</span><span class="tag">MIL-STD-1553B</span><span class="tag">RS-422</span>
+            <span class="tag">OOAD</span><span class="tag">HIL testing</span><span class="tag">Ada 95</span>
+          </div>
         </div>
-        <div class="exp-company">Alchemy Techsol · Bangalore, India · Full-time</div>
-        <ul class="exp-bullets">
-          <li>Migrated 10,000+ lines of Ada 95 avionics code to C++ ROS modules, improving execution performance by 25% and enabling cross-platform deployment.</li>
-          <li>Integrated MIL-STD-1553B, RS-422, and RS-232 protocols into ROS via custom bridge nodes for real-time data transfer in safety-critical avionics systems.</li>
-          <li>Reduced verification cycle time by 40% through hardware-independent ROS simulation and test frameworks.</li>
-          <li>Acted as interim lead for a team of 3 engineers, coordinating sprint deliverables and conducting ROS performance audits using rqt_graph and rosbag.</li>
-        </ul>
-        <div class="exp-tags">
-          <span class="exp-tag">ROS</span><span class="exp-tag">C++</span>
-          <span class="exp-tag">MIL-STD-1553B</span><span class="exp-tag">RS-422</span>
-          <span class="exp-tag">OOAD</span><span class="exp-tag">HIL Testing</span>
-          <span class="exp-tag">Ada 95</span>
-        </div>
-      </div>
+      </article>
 
-      <div class="exp-item past">
-        <div class="exp-header">
-          <div class="exp-title">UAV Systems & Robotics Engineer</div>
-          <div class="exp-date">Sep 2023 – Sep 2024</div>
+      <article class="role">
+        <div class="role-when"><div class="role-date">Sep 2023 —<br/>Sep 2024</div></div>
+        <div>
+          <h3 class="role-title">UAV Systems &amp; Robotics Engineer</h3>
+          <div class="role-org">Yottec Systems · Bangalore, India</div>
+          <ul>
+            <li>Designed modular ROS-based software architecture for multi-copter, VTOL and fixed-wing platforms, covering sensor fusion, telemetry and actuator control.</li>
+            <li>Developed a Qt/PyQt ground control station integrated with PX4 and ArduPilot over MAVLink for real-time mission planning of five concurrent UAVs.</li>
+            <li>Tripled test throughput by building ROS-enabled automatic test equipment for flight-control verification.</li>
+            <li>Cut testing time by 40% with HIL/SIL pipelines built on Gazebo and MATLAB/Simulink for flight-dynamics validation.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">ROS / ROS2</span><span class="tag">PX4</span><span class="tag">ArduPilot</span><span class="tag">MAVLink</span>
+            <span class="tag">Qt / PyQt</span><span class="tag">HIL / SIL</span><span class="tag">Gazebo</span><span class="tag">Python</span>
+          </div>
         </div>
-        <div class="exp-company">Yottec Systems · Bangalore, India · Full-time</div>
-        <ul class="exp-bullets">
-          <li>Designed modular ROS-based software architecture for multi-copter, VTOL, and fixed-wing UAV platforms covering sensor fusion, telemetry, and actuator control.</li>
-          <li>Developed Qt/PyQt Ground Control Station integrated with PX4/ArduPilot via MAVLink for real-time mission planning of 5+ concurrent UAVs.</li>
-          <li>Tripled UAV test throughput by building ROS-enabled Automatic Test Equipment (ATE) for automated flight-control system verification.</li>
-          <li>Cut testing time by 40% through HIL/SIL pipelines integrated with Gazebo and MATLAB/Simulink for flight-dynamics validation.</li>
-        </ul>
-        <div class="exp-tags">
-          <span class="exp-tag">ROS/ROS2</span><span class="exp-tag">PX4</span>
-          <span class="exp-tag">ArduPilot</span><span class="exp-tag">MAVLink</span>
-          <span class="exp-tag">Qt/PyQt</span><span class="exp-tag">HIL/SIL</span>
-          <span class="exp-tag">Gazebo</span><span class="exp-tag">Python</span>
-        </div>
-      </div>
+      </article>
 
-      <div class="exp-item past">
-        <div class="exp-header">
-          <div class="exp-title">Robotics Systems Engineer – Motion Control</div>
-          <div class="exp-date">Apr 2023 – Sep 2023</div>
+      <article class="role">
+        <div class="role-when"><div class="role-date">Apr 2023 —<br/>Sep 2023</div></div>
+        <div>
+          <h3 class="role-title">Robotics Systems Engineer — Motion Control</h3>
+          <div class="role-org">Eternal Robotics · Mumbai, India · Remote</div>
+          <ul>
+            <li>Implemented real-time motion planning and trajectory generation for mobile and industrial robots in ROS2, cutting path-planning latency by roughly 20%.</li>
+            <li>Architected multi-modal sensor suites combining LiDAR, depth cameras and IMUs for SLAM-based navigation.</li>
+            <li>Developed complex robot behaviours in Gazebo and RViz with 95%+ parity between simulation and physical hardware.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">ROS2</span><span class="tag">SLAM</span><span class="tag">LiDAR</span>
+            <span class="tag">Gazebo</span><span class="tag">PID control</span><span class="tag">MoveIt</span>
+          </div>
         </div>
-        <div class="exp-company">Eternal Robotics · Mumbai, India · Remote</div>
-        <ul class="exp-bullets">
-          <li>Implemented real-time motion planning and trajectory generation for mobile and industrial robots using ROS2, reducing path-planning latency by ~20%.</li>
-          <li>Architected multi-modal sensor suites integrating LiDAR, Depth Cameras, and IMUs for SLAM-based autonomous navigation.</li>
-          <li>Developed complex robotic behaviours in Gazebo/RViz with 95%+ parity between simulation and physical hardware.</li>
-        </ul>
-        <div class="exp-tags">
-          <span class="exp-tag">ROS2</span><span class="exp-tag">SLAM</span>
-          <span class="exp-tag">LiDAR</span><span class="exp-tag">Gazebo</span>
-          <span class="exp-tag">PID Control</span><span class="exp-tag">MoveIt</span>
-        </div>
-      </div>
+      </article>
 
-      <div class="exp-item past">
-        <div class="exp-header">
-          <div class="exp-title">Software Developer</div>
-          <div class="exp-date">Mar 2022 – Mar 2023</div>
+      <article class="role">
+        <div class="role-when"><div class="role-date">Mar 2022 —<br/>Mar 2023</div></div>
+        <div>
+          <h3 class="role-title">Software Developer</h3>
+          <div class="role-org">Asteria: Space &amp; Satellites · Edinburgh, UK · Hybrid</div>
+          <ul>
+            <li>Refactored satellite link-budget analysis modules for 66% faster processing, 45% lower operational cost and 3× computational throughput.</li>
+            <li>Developed optimisation algorithms for satellite communication systems under real-time and resource constraints.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">Algorithm design</span><span class="tag">Satellite comms</span><span class="tag">Optimisation</span>
+          </div>
         </div>
-        <div class="exp-company">Asteria: Space & Satellites · Edinburgh, UK · Hybrid</div>
-        <ul class="exp-bullets">
-          <li>Refactored satellite link-budget analysis modules achieving 66% faster processing, 45% lower operational costs, and 3× computational throughput.</li>
-          <li>Developed optimisation algorithms for satellite communication systems with focus on real-time performance and resource constraints.</li>
-        </ul>
-        <div class="exp-tags">
-          <span class="exp-tag">Python</span><span class="exp-tag">Algorithm Design</span>
-          <span class="exp-tag">Satellite Comms</span><span class="exp-tag">Optimisation</span>
-        </div>
-      </div>
+      </article>
 
     </div>
   </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills">
-  <div class="section-inner">
-    <div class="section-label">Technical Expertise</div>
-    <h2 class="section-title">Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-group">
-        <div class="skill-group-title">Robotics Frameworks</div>
-        <div class="skill-chips">
-          <span class="skill-chip star">ROS2</span>
-          <span class="skill-chip star">ROS</span>
-          <span class="skill-chip">MoveIt</span>
-          <span class="skill-chip">Gazebo</span>
-          <span class="skill-chip">RViz</span>
-          <span class="skill-chip">tf2</span>
-          <span class="skill-chip">Navigation Stack</span>
-          <span class="skill-chip">TensorFlow</span>
+<section class="sec" id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">Capabilities</span>
+      <h2 class="sec-title">Technical stack.</h2>
+      <p class="sec-note">Highlighted items are where I work day to day.</p>
+    </div>
+    <div class="skills">
+      <div class="skill-row">
+        <div class="skill-name">Robotics frameworks</div>
+        <div class="chips">
+          <span class="chip key">ROS2</span><span class="chip key">ROS</span><span class="chip">MoveIt</span><span class="chip">Gazebo</span>
+          <span class="chip">RViz</span><span class="chip">tf2</span><span class="chip">Navigation2</span><span class="chip">TensorFlow</span>
         </div>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Programming</div>
-        <div class="skill-chips">
-          <span class="skill-chip star">Python</span>
-          <span class="skill-chip star">C++</span>
-          <span class="skill-chip">Embedded C</span>
-          <span class="skill-chip">MATLAB</span>
-          <span class="skill-chip">SQL</span>
-          <span class="skill-chip">Ada 95</span>
-          <span class="skill-chip">RTOS</span>
+      <div class="skill-row">
+        <div class="skill-name">Programming</div>
+        <div class="chips">
+          <span class="chip key">C++</span><span class="chip key">Python</span><span class="chip">Embedded C</span>
+          <span class="chip">MATLAB</span><span class="chip">SQL</span><span class="chip">Ada 95</span><span class="chip">RTOS</span>
         </div>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Embedded Systems</div>
-        <div class="skill-chips">
-          <span class="skill-chip star">NVIDIA Jetson</span>
-          <span class="skill-chip star">Embedded Linux</span>
-          <span class="skill-chip">STM32</span>
-          <span class="skill-chip">Arduino</span>
-          <span class="skill-chip">Raspberry Pi</span>
-          <span class="skill-chip">SPI / I²C</span>
-          <span class="skill-chip">CAN Bus</span>
-          <span class="skill-chip">FPGA</span>
+      <div class="skill-row">
+        <div class="skill-name">Embedded systems</div>
+        <div class="chips">
+          <span class="chip key">NVIDIA Jetson</span><span class="chip key">Embedded Linux</span><span class="chip">STM32</span>
+          <span class="chip">Arduino</span><span class="chip">Raspberry Pi</span><span class="chip">SPI / I²C</span><span class="chip">CAN bus</span><span class="chip">FPGA</span>
         </div>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Motion & Control</div>
-        <div class="skill-chips">
-          <span class="skill-chip star">Motion Planning</span>
-          <span class="skill-chip">Inverse Kinematics</span>
-          <span class="skill-chip">PID Control</span>
-          <span class="skill-chip">Trajectory Optimisation</span>
-          <span class="skill-chip">Sensor Fusion</span>
-          <span class="skill-chip">SLAM</span>
+      <div class="skill-row">
+        <div class="skill-name">Motion &amp; control</div>
+        <div class="chips">
+          <span class="chip key">Motion planning</span><span class="chip">Inverse kinematics</span><span class="chip">PID control</span>
+          <span class="chip">Trajectory optimisation</span><span class="chip">Sensor fusion</span><span class="chip">SLAM</span>
         </div>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-title">UAV Systems</div>
-        <div class="skill-chips">
-          <span class="skill-chip star">PX4</span>
-          <span class="skill-chip">ArduPilot</span>
-          <span class="skill-chip">MAVLink</span>
-          <span class="skill-chip">MAVSDK</span>
-          <span class="skill-chip">HIL/SIL Testing</span>
-          <span class="skill-chip">QGroundControl</span>
+      <div class="skill-row">
+        <div class="skill-name">UAV systems</div>
+        <div class="chips">
+          <span class="chip key">PX4</span><span class="chip">ArduPilot</span><span class="chip">MAVLink</span>
+          <span class="chip">MAVSDK</span><span class="chip">HIL / SIL testing</span><span class="chip">QGroundControl</span>
         </div>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-title">CV & AI</div>
-        <div class="skill-chips">
-          <span class="skill-chip star">OpenCV</span>
-          <span class="skill-chip">Machine Learning</span>
-          <span class="skill-chip">OpenAI API</span>
-          <span class="skill-chip">Darknet YOLO</span>
-          <span class="skill-chip">NLP</span>
-          <span class="skill-chip">Darknet</span>
+      <div class="skill-row">
+        <div class="skill-name">Vision &amp; AI</div>
+        <div class="chips">
+          <span class="chip key">OpenCV</span><span class="chip">Machine learning</span><span class="chip">OpenAI API</span>
+          <span class="chip">Darknet YOLO</span><span class="chip">NLP</span>
         </div>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Protocols</div>
-        <div class="skill-chips">
-          <span class="skill-chip">MIL-STD-1553B</span>
-          <span class="skill-chip">RS-232 / RS-422</span>
-          <span class="skill-chip">Ethernet</span>
-          <span class="skill-chip">UDP/TCP</span>
-          <span class="skill-chip">CAN Bus</span>
+      <div class="skill-row">
+        <div class="skill-name">Protocols</div>
+        <div class="chips">
+          <span class="chip">MIL-STD-1553B</span><span class="chip">RS-232 / RS-422</span><span class="chip">Ethernet</span>
+          <span class="chip">UDP / TCP</span><span class="chip">CAN bus</span>
         </div>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Tools & CAD</div>
-        <div class="skill-chips">
-          <span class="skill-chip star">Linux/Ubuntu</span>
-          <span class="skill-chip">Git</span>
-          <span class="skill-chip">Qt/PyQt</span>
-          <span class="skill-chip">SolidWorks</span>
-          <span class="skill-chip">Catia V5</span>
-          <span class="skill-chip">RobotStudio</span>
-          <span class="skill-chip">Ansys FEA</span>
-          <span class="skill-chip">CI/CD</span>
+      <div class="skill-row">
+        <div class="skill-name">Tools &amp; CAD</div>
+        <div class="chips">
+          <span class="chip key">Linux / Ubuntu</span><span class="chip">Git</span><span class="chip">Qt / PyQt</span><span class="chip">SolidWorks</span>
+          <span class="chip">Catia V5</span><span class="chip">RobotStudio</span><span class="chip">Ansys FEA</span><span class="chip">CI/CD</span>
         </div>
       </div>
     </div>
@@ -714,145 +612,133 @@ footer{
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
-  <div class="section-inner">
-    <div class="section-label">Portfolio</div>
-    <h2 class="section-title">Key Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-num">01 — Nov 2025 · Present</div>
-        <div class="project-title">Integrated Mechatronic Face: Soft Robotics & Precision Engineering</div>
-        <div class="project-tech">Embedded C · Firmware · CNC Machining · Silicone Moulding · DoF Control</div>
-        <p class="project-desc">Directed end-to-end R&D and manufacture of a high-fidelity humanoid head. Programmed firmware to synchronise multi-DoF actuator arrays using non-linear motion curves for lifelike facial micro-expressions. Engineered multi-layer silicone dermis via vacuum-pour moulding to replicate human skin elasticity. Fabricated internal skeletal frames on CNC lathe/mill to micron-level tolerances.</p>
-      </div>
-      <div class="project-card">
-        <div class="project-num">02 — Dec 2024 · Feb 2025</div>
-        <div class="project-title">BIW Robotic Fixture & Gripper Design</div>
-        <div class="project-tech">SolidWorks · Catia V5 · RobotStudio · Pneumatics</div>
-        <p class="project-desc">Designed modular BIW welding fixtures and grippers in SolidWorks and Catia V5 for automotive body assembly. Simulated full robotic assembly processes in RobotStudio to optimise positioning and reduce cycle time. Integrated actuators, pneumatic cylinders, and precision rails for smooth motion.</p>
-      </div>
-      <div class="project-card">
-        <div class="project-num">03 — Sep 2024 · Dec 2024</div>
-        <div class="project-title">Industrial Conveyor System with Predictive Maintenance</div>
-        <div class="project-tech">SolidWorks · AutoCAD · Ansys FEA · Sensor Integration</div>
-        <p class="project-desc">Designed automated conveyor system with sensor-based predictive maintenance algorithms to detect mechanical wear before failure. Validated structural durability through Ansys FEA stress testing. Produced comprehensive 3D CAD models in SolidWorks and AutoCAD.</p>
-      </div>
-      <div class="project-card">
-        <div class="project-num">04 — Sep 2021 · Jan 2022 · MSc</div>
-        <div class="project-title">Human-Robot Joint Interaction with Tiago Robot</div>
-        <div class="project-tech">ROS · Python · MoveIt · Darknet YOLO</div>
-        <p class="project-desc">Improved Tiago robot handover efficiency by 26% using a ROS-based system combining Darknet YOLO real-time object detection with MoveIt arm planning. Enabled smooth, natural human-robot object transfer for assistive applications.</p>
-      </div>
+<section class="sec alt" id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">Selected work</span>
+      <h2 class="sec-title">Projects.</h2>
+    </div>
+    <div class="projects">
+      <article class="project">
+        <div class="project-when">Nov 2025 — Present</div>
+        <h3 class="project-title">Integrated mechatronic face: soft robotics and precision engineering</h3>
+        <div class="project-stack">Embedded C · Firmware · CNC machining · Silicone moulding · Multi-DoF control</div>
+        <p class="project-desc">Directed R&amp;D and manufacture of a high-fidelity humanoid head. Wrote firmware synchronising multi-DoF actuator arrays along non-linear motion curves for lifelike micro-expressions, engineered a multi-layer silicone dermis by vacuum-pour moulding to match skin elasticity, and machined the internal skeletal frames on CNC lathe and mill to micron tolerances.</p>
+      </article>
+      <article class="project">
+        <div class="project-when">Dec 2024 — Feb 2025</div>
+        <h3 class="project-title">BIW robotic fixture and gripper design</h3>
+        <div class="project-stack">SolidWorks · Catia V5 · RobotStudio · Pneumatics</div>
+        <p class="project-desc">Designed modular body-in-white welding fixtures and grippers for automotive assembly, simulated the full robotic process in RobotStudio to optimise positioning and cycle time, and integrated actuators, pneumatic cylinders and precision rails for smooth motion.</p>
+      </article>
+      <article class="project">
+        <div class="project-when">Sep 2024 — Dec 2024</div>
+        <h3 class="project-title">Industrial conveyor with predictive maintenance</h3>
+        <div class="project-stack">SolidWorks · AutoCAD · Ansys FEA · Sensor integration</div>
+        <p class="project-desc">Built an automated conveyor system with sensor-driven algorithms that flag mechanical wear before failure, validated structural durability through Ansys FEA stress testing, and produced the full 3D CAD documentation set.</p>
+      </article>
+      <article class="project">
+        <div class="project-when">Sep 2021 — Jan 2022 · MSc</div>
+        <h3 class="project-title">Human–robot joint interaction with the Tiago robot</h3>
+        <div class="project-stack">ROS · Python · MoveIt · Darknet YOLO</div>
+        <p class="project-desc">Improved handover efficiency by 26% with a ROS system pairing Darknet YOLO real-time object detection with MoveIt arm planning, producing smooth human-to-robot object transfer for assistive applications.</p>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- EDUCATION -->
-<section id="education">
-  <div class="section-inner">
-    <div class="section-label">Academic Background</div>
-    <h2 class="section-title">Education</h2>
-    <div class="edu-grid">
-      <div class="edu-card">
-        <div class="edu-degree">Master of Science in Robotics</div>
+<section class="sec" id="education">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">Education</span>
+      <h2 class="sec-title">Academic background.</h2>
+    </div>
+    <div class="edu">
+      <div class="edu-item">
+        <h3 class="edu-degree">MSc Robotics</h3>
         <div class="edu-school">Heriot-Watt University · Edinburgh, UK</div>
-        <div class="edu-date">Sep 2020 – Dec 2022</div>
-        <p class="edu-desc">Advanced study in robotics technology, autonomous systems, and human-robot interaction. Research focus on conversational AI and multimodal interaction in robotic platforms. Published at ACM ICMI 2021.</p>
-        <div class="edu-scores">
-          <div class="edu-score">
-            <span class="edu-score-label">Conversational Agents & Spoken Language Processing</span>
-            <span class="edu-score-val">81%</span>
-          </div>
-          <div class="edu-score">
-            <span class="edu-score-label">Intelligent Robotics</span>
-            <span class="edu-score-val">66%</span>
-          </div>
-        </div>
+        <div class="edu-date">Sep 2020 — Dec 2022</div>
+        <p class="edu-desc">Advanced study in robotics technology, autonomous systems and human–robot interaction, with research on conversational AI and multimodal interaction in robotic platforms. Published at ACM ICMI 2021.</p>
+        <div class="edu-line"><span>Conversational agents &amp; spoken language processing</span><span>81%</span></div>
+        <div class="edu-line"><span>Intelligent robotics</span><span>66%</span></div>
       </div>
-      <div class="edu-card">
-        <div class="edu-degree">B.Tech in Mechatronics Engineering</div>
+      <div class="edu-item">
+        <h3 class="edu-degree">B.Tech Mechatronics Engineering</h3>
         <div class="edu-school">SVKM's NMIMS · Mumbai, India</div>
-        <div class="edu-date">Jul 2016 – May 2020</div>
-        <p class="edu-desc">Interdisciplinary programme integrating mechanical, electronics, computing, and control systems engineering. Core competencies in kinematics, dynamics modelling, sensor systems, embedded computing, and engineering management.</p>
-        <div class="edu-scores" style="margin-top:.75rem;">
-          <div class="edu-score">
-            <span class="edu-score-label">Cultural Fest — Stage & Sound Organizing Committee</span>
-            <span class="edu-score-val">Member</span>
-          </div>
-          <div class="edu-score">
-            <span class="edu-score-label">Placement Co-coordinator</span>
-            <span class="edu-score-val">Role</span>
-          </div>
-        </div>
+        <div class="edu-date">Jul 2016 — May 2020</div>
+        <p class="edu-desc">Interdisciplinary programme across mechanical, electronics, computing and control engineering, with core work in kinematics, dynamics modelling, sensor systems and embedded computing.</p>
+        <div class="edu-line"><span>Cultural fest — stage &amp; sound committee</span><span>Member</span></div>
+        <div class="edu-line"><span>Placement co-coordinator</span><span>Role</span></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PUBLICATION -->
-<section id="publication">
-  <div class="section-inner">
-    <div class="section-label">Research</div>
-    <h2 class="section-title">Publication</h2>
-    <div class="pub-card">
-      <div class="pub-venue">ACM ICMI 2021 · October 2021</div>
-      <div class="pub-title">ViCA: Combining visual, social, and task-oriented conversational AI in a healthcare setting</div>
-      <p class="pub-authors">George Pantazopoulos, Jeremy Bruyere, Malvina Nikandrou, Thibaud Boissier, Supun Hemanthage, Binha Kumar Sachish, <strong>Vidyul Shah</strong>, Christian Dondrup, Oliver Lemon</p>
-      <div class="pub-doi">DOI: <a href="https://dl.acm.org/doi/10.1145/3462244.3479909" target="_blank">10.1145/3462244.3479909 ↗</a></div>
+<section class="sec alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">Research</span>
+      <h2 class="sec-title">Publication.</h2>
+    </div>
+    <div class="paper">
+      <div class="paper-venue">ACM ICMI 2021 · October 2021</div>
+      <h3 class="paper-title">ViCA: Combining visual, social and task-oriented conversational AI in a healthcare setting</h3>
+      <p class="paper-authors">George Pantazopoulos, Jeremy Bruyere, Malvina Nikandrou, Thibaud Boissier, Supun Hemanthage, Binha Kumar Sachish, <strong>Vidyul Shah</strong>, Christian Dondrup, Oliver Lemon</p>
+      <div class="paper-doi">DOI <a href="https://dl.acm.org/doi/10.1145/3462244.3479909" target="_blank" rel="noopener">10.1145/3462244.3479909 ↗</a></div>
     </div>
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-  <div class="section-inner">
-    <div class="section-label">Credentials</div>
-    <h2 class="section-title">Certifications</h2>
-    <div class="cert-grid">
-      <div class="cert-card">
-        <div class="cert-name">NVIDIA Jetson AI Specialist</div>
-        <div class="cert-issuer">NVIDIA Developer Program</div>
-        <div class="cert-date">In Progress</div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-name">Mathematics for Machine Learning</div>
-        <div class="cert-issuer">Imperial College London</div>
-        <div class="cert-date">May 2020</div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-name">Machine Learning using Python</div>
-        <div class="cert-issuer">Universal Informatics</div>
-        <div class="cert-date">Jun 2018</div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-name">C, C++ and Data Structures</div>
-        <div class="cert-issuer">Universal Informatics</div>
-        <div class="cert-date">Jul 2015</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HONORS -->
-<section id="honors">
-  <div class="section-inner">
-    <div class="section-label">Achievements</div>
-    <h2 class="section-title">Honours & Awards</h2>
-    <div class="honors-grid">
-      <div class="honor-card">
-        <div class="honor-icon">🥈</div>
-        <div>
-          <div class="honor-name">Cadet Inter School Taekwondo Championship</div>
-          <div class="honor-body">District Taekwondo Association Indore · Silver Medal (Over 78 Kg)</div>
-          <div class="honor-date">Aug 2015 · Delhi Public School, Indore</div>
+<!-- CREDENTIALS + HONOURS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <div class="sec-head" style="margin-bottom:1.75rem;">
+          <span class="label">Credentials</span>
+          <h2 class="sec-title" style="font-size:1.6rem;">Certifications.</h2>
+        </div>
+        <div class="list">
+          <div class="list-item">
+            <div><div class="list-name">NVIDIA Jetson AI Specialist</div><div class="list-sub">NVIDIA Developer Program</div></div>
+            <div class="list-meta pending">In progress</div>
+          </div>
+          <div class="list-item">
+            <div><div class="list-name">Mathematics for Machine Learning</div><div class="list-sub">Imperial College London</div></div>
+            <div class="list-meta">May 2020</div>
+          </div>
+          <div class="list-item">
+            <div><div class="list-name">Machine Learning using Python</div><div class="list-sub">Universal Informatics</div></div>
+            <div class="list-meta">Jun 2018</div>
+          </div>
+          <div class="list-item">
+            <div><div class="list-name">C, C++ and Data Structures</div><div class="list-sub">Universal Informatics</div></div>
+            <div class="list-meta">Jul 2015</div>
+          </div>
         </div>
       </div>
-      <div class="honor-card">
-        <div class="honor-icon">🏆</div>
-        <div>
-          <div class="honor-name">59th National School Games – Roll Ball Boys U19</div>
-          <div class="honor-body">School Games Federation of India · State Representative (Madhya Pradesh)</div>
-          <div class="honor-date">Jan 2014 · Delhi Public School, Indore</div>
+      <div>
+        <div class="sec-head" style="margin-bottom:1.75rem;">
+          <span class="label">Recognition</span>
+          <h2 class="sec-title" style="font-size:1.6rem;">Honours &amp; awards.</h2>
+        </div>
+        <div class="list">
+          <div class="list-item">
+            <div>
+              <div class="list-name">Cadet Inter-School Taekwondo Championship</div>
+              <div class="list-sub">District Taekwondo Association, Indore · Over 78 kg</div>
+            </div>
+            <div class="list-meta">Silver · 2015</div>
+          </div>
+          <div class="list-item">
+            <div>
+              <div class="list-name">59th National School Games — Roll Ball, Boys U19</div>
+              <div class="list-sub">School Games Federation of India · State representative, Madhya Pradesh</div>
+            </div>
+            <div class="list-meta">2014</div>
+          </div>
         </div>
       </div>
     </div>
@@ -860,56 +746,73 @@ footer{
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-  <div class="section-inner">
-    <div class="section-label">Let's Connect</div>
-    <h2 class="contact-title">Open to opportunities<br/>worldwide.</h2>
-    <p class="contact-sub">Available for Robotics Software Engineer and Embedded Systems roles. Open to relocation to Europe, Singapore, and Australia.</p>
+<section class="sec contact" id="contact">
+  <div class="wrap">
+    <span class="label">Contact</span>
+    <h2 class="contact-title">Let's build something<br/><em>that moves.</em></h2>
+    <p class="contact-sub">Available for robotics software and embedded systems roles, in Bangalore or on relocation to Europe, Singapore and Australia. The fastest way to reach me is email.</p>
     <div class="contact-links">
-      <a class="contact-link" href="mailto:vidyulshah14@outlook.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <a class="clink" href="mailto:vidyulshah14@outlook.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         vidyulshah14@outlook.com
       </a>
-      <a class="contact-link" href="https://linkedin.com/in/vidyul-shah" target="_blank">
+      <a class="clink" href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+        github.com/YOUR-USERNAME
+      </a>
+      <a class="clink" href="https://linkedin.com/in/vidyul-shah" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
         linkedin.com/in/vidyul-shah
       </a>
-      <a class="contact-link" href="tel:+917509072848">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <a class="clink" href="tel:+917509072848">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         +91 750 907 2848
       </a>
     </div>
-    <div class="open-badge">Currently open to new opportunities</div>
+    <div class="status">Open to new opportunities</div>
   </div>
 </section>
 
 <footer>
-  <p>© 2025 Vidyul Shah · Robotics Software Engineer · Bangalore, India</p>
+  <div class="wrap foot">
+    <span>© 2026 Vidyul Shah</span>
+    <span>Robotics Software Engineer · Bangalore, India</span>
+  </div>
 </footer>
 
 <script>
-// Scroll reveal for experience items
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if(e.isIntersecting) e.target.classList.add('visible');
-  });
-}, {threshold: 0.15});
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var roles = document.querySelectorAll('.role');
+  if (reduce || !('IntersectionObserver' in window)) {
+    roles.forEach(function(el){ el.classList.add('visible'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, {threshold: 0.12});
+    roles.forEach(function(el){ io.observe(el); });
+  }
 
-document.querySelectorAll('.exp-item').forEach(el => observer.observe(el));
-
-// Active nav link highlight
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => {
-    if(window.scrollY >= s.offsetTop - 120) current = s.id;
-  });
-  navLinks.forEach(a => {
-    a.style.color = a.getAttribute('href') === '#'+current
-      ? 'var(--accent2)' : '';
-  });
-});
+  var sections = document.querySelectorAll('section[id]');
+  var links = document.querySelectorAll('.nav-links a');
+  var ticking = false;
+  function sync(){
+    var current = '';
+    sections.forEach(function(s){
+      if (window.scrollY >= s.offsetTop - 140) current = s.id;
+    });
+    links.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking) { window.requestAnimationFrame(sync); ticking = true; }
+  }, {passive:true});
+  sync();
+})();
 </script>
 </body>
 </html>
