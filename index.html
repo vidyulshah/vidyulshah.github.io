@@ -303,6 +303,73 @@ footer{
 }
 .foot{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
 
+/* ── github flip cards ─────────────────────────────── */
+.gh-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line);
+  border-left:1px solid var(--line);
+}
+.gh-card-wrap{
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  perspective:900px;
+  height:215px;
+}
+.gh-card{
+  position:relative;width:100%;height:100%;
+  transform-style:preserve-3d;
+  transition:transform .52s cubic-bezier(.35,0,.15,1);
+}
+.gh-card-wrap:hover .gh-card,
+.gh-card-wrap.gh-flipped .gh-card{
+  transform:rotateY(180deg);
+}
+.gh-front,.gh-back{
+  position:absolute;inset:0;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  padding:1.35rem;
+  display:flex;flex-direction:column;
+}
+.gh-front{background:var(--paper-2);}
+.gh-back{
+  background:var(--spruce);
+  transform:rotateY(180deg);
+}
+.gh-top{display:flex;justify-content:space-between;align-items:flex-start;}
+.gh-icon{width:14px;height:14px;fill:var(--amber);flex-shrink:0;margin-top:.05rem;}
+.gh-tag{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+.gh-name{
+  font-family:var(--grotesk);font-weight:700;font-size:.92rem;
+  letter-spacing:-.02em;line-height:1.25;color:var(--ink);
+  margin-top:auto;padding-top:.55rem;
+}
+.gh-hint{
+  font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--line);margin-top:.4rem;
+}
+.gh-desc{
+  font-family:var(--serif);font-size:.8rem;line-height:1.6;
+  color:rgba(244,244,239,.88);flex:1;
+}
+.gh-link{
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.05em;
+  color:var(--amber);text-decoration:none;margin-top:.7rem;flex-shrink:0;
+  border-bottom:1px solid transparent;transition:border-color .18s;display:inline-block;
+}
+.gh-link:hover{border-color:var(--amber);}
+@media(max-width:980px){.gh-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){
+  .gh-grid{grid-template-columns:repeat(2,1fr);}
+  .gh-card-wrap{height:190px;}
+  .gh-name{font-size:.82rem;}
+  .gh-desc{font-size:.76rem;}
+}
+
 @keyframes swipe{to{transform:scaleX(1);}}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:.25;}}
 
@@ -348,6 +415,7 @@ footer{
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#github">GitHub</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -647,6 +715,156 @@ footer{
   </div>
 </section>
 
+<!-- GITHUB -->
+<section class="sec" id="github">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">Open Source</span>
+      <h2 class="sec-title">GitHub repositories.</h2>
+      <p class="sec-note">Hover a card to read what each project does.</p>
+    </div>
+    <div class="gh-grid">
+
+      <div class="gh-card-wrap">
+        <div class="gh-card">
+          <div class="gh-front">
+            <div class="gh-top">
+              <span class="gh-tag">Computer Vision</span>
+              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+            </div>
+            <div class="gh-name">Satellite Image Classification</div>
+            <div class="gh-hint">Hover to flip ↗</div>
+          </div>
+          <div class="gh-back">
+            <p class="gh-desc">Land-use classification with Vision Transformer (ViT) fine-tuned on EuroSAT RGB. Transfer learning via PyTorch &amp; HuggingFace; multi-class output across 10 terrain categories.</p>
+            <a class="gh-link" href="https://github.com/vidyulshah/Satellite-Image-Classification" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gh-card-wrap">
+        <div class="gh-card">
+          <div class="gh-front">
+            <div class="gh-top">
+              <span class="gh-tag">Object Detection</span>
+              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+            </div>
+            <div class="gh-name">TomaTron</div>
+            <div class="gh-hint">Hover to flip ↗</div>
+          </div>
+          <div class="gh-back">
+            <p class="gh-desc">Real-time tomato detection and ripeness classification with DETR (ResNet-50). Classifies Ripe, Semi-ripe and Unripe stages in images and live video via PyTorch and OpenCV.</p>
+            <a class="gh-link" href="https://github.com/vidyulshah/TomaTron" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gh-card-wrap">
+        <div class="gh-card">
+          <div class="gh-front">
+            <div class="gh-top">
+              <span class="gh-tag">Motion Planning</span>
+              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+            </div>
+            <div class="gh-name">Hybrid APF-RRT Panda</div>
+            <div class="gh-hint">Hover to flip ↗</div>
+          </div>
+          <div class="gh-back">
+            <p class="gh-desc">Sampling-based motion planner for a Franka Panda arm blending goal-biased RRT with APF guidance. Includes path smoothing, time parameterisation, and 31 unit tests in PyBullet.</p>
+            <a class="gh-link" href="https://github.com/vidyulshah/hybrid-apf-rrt-panda" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gh-card-wrap">
+        <div class="gh-card">
+          <div class="gh-front">
+            <div class="gh-top">
+              <span class="gh-tag">Robotics Sim</span>
+              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+            </div>
+            <div class="gh-name">PyBullet Pick-and-Place</div>
+            <div class="gh-hint">Hover to flip ↗</div>
+          </div>
+          <div class="gh-back">
+            <p class="gh-desc">Autonomous pick-and-place pipeline for a Franka Panda in PyBullet. Finite-state machine, overhead camera detection, IK-based grasping, YAML config, and per-pick CSV metrics.</p>
+            <a class="gh-link" href="https://github.com/vidyulshah/pybullet-pick-place" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gh-card-wrap">
+        <div class="gh-card">
+          <div class="gh-front">
+            <div class="gh-top">
+              <span class="gh-tag">Computer Vision</span>
+              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+            </div>
+            <div class="gh-name">Soil Type Classification</div>
+            <div class="gh-hint">Hover to flip ↗</div>
+          </div>
+          <div class="gh-back">
+            <p class="gh-desc">ViT-based transfer learning to classify four Indian soil types: Alluvial, Black, Clay, Red. Fine-tuned on 1,215 images with a full evaluation pipeline and OpenCV result display.</p>
+            <a class="gh-link" href="https://github.com/vidyulshah/Soil-Type-Classification-System" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gh-card-wrap">
+        <div class="gh-card">
+          <div class="gh-front">
+            <div class="gh-top">
+              <span class="gh-tag">Segmentation</span>
+              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+            </div>
+            <div class="gh-name">Product Background Removal</div>
+            <div class="gh-hint">Hover to flip ↗</div>
+          </div>
+          <div class="gh-back">
+            <p class="gh-desc">Zero-shot product isolation using Grounding DINO for text-prompt detection and SAM for pixel-level segmentation. Outputs a transparent PNG — no training required.</p>
+            <a class="gh-link" href="https://github.com/vidyulshah/Product-Background-Removal" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gh-card-wrap">
+        <div class="gh-card">
+          <div class="gh-front">
+            <div class="gh-top">
+              <span class="gh-tag">Segmentation</span>
+              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+            </div>
+            <div class="gh-name">Flooded Area Segmentation</div>
+            <div class="gh-hint">Hover to flip ↗</div>
+          </div>
+          <div class="gh-back">
+            <p class="gh-desc">Zero-shot flood detection and segmentation with Grounding DINO + SAM. Isolates flooded regions from any image via a free-text prompt — no training required, transparent PNG output.</p>
+            <a class="gh-link" href="https://github.com/vidyulshah/Flooded-Area-Segmentation" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gh-card-wrap">
+        <div class="gh-card">
+          <div class="gh-front">
+            <div class="gh-top">
+              <span class="gh-tag">Robotics Sim</span>
+              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+            </div>
+            <div class="gh-name">EKF GPS Visual Odometry Fusion</div>
+            <div class="gh-hint">Hover to flip ↗</div>
+          </div>
+          <div class="gh-back">
+            <p class="gh-desc">Extended Kalman Filter fusing monocular visual odometry with GPS for outdoor 2D robot localisation (ROS Noetic).</p>
+            <a class="gh-link" href="https://github.com/vidyulshah/EKF-GPS-Visual-Odometry-Fusion" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- EDUCATION -->
 <section class="sec" id="education">
   <div class="wrap">
@@ -794,6 +1012,13 @@ footer{
     }, {threshold: 0.12});
     roles.forEach(function(el){ io.observe(el); });
   }
+
+  // GitHub flip cards — tap/click to flip on touch devices
+  document.querySelectorAll('.gh-card-wrap').forEach(function(wrap){
+    wrap.addEventListener('click', function(){
+      this.classList.toggle('gh-flipped');
+    });
+  });
 
   var sections = document.querySelectorAll('section[id]');
   var links = document.querySelectorAll('.nav-links a');
