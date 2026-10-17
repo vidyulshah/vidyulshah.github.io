@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Vidyul Shah — Robotics Software &amp; Deployment Engineer</title>
-<meta name="description" content="Robotics software and deployment engineer: ROS2, NVIDIA Jetson, embedded Linux, and field commissioning of humanoid systems."/>
+<meta name="description" content="Vidyul Shah, robotics software and deployment engineer: ROS2 autonomy, NVIDIA Jetson, embedded Linux, UAV systems, avionics modernisation and field commissioning of humanoid robots."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -191,7 +191,7 @@ header{
 .relocate strong{color:var(--ink);}
 .metrics{border-top:1px solid var(--line);}
 .metric{
-  display:grid;grid-template-columns:5.5rem 1fr;gap:1.25rem;
+  display:grid;grid-template-columns:6.5rem 1fr;gap:1.25rem;
   padding:1.25rem .25rem;border-bottom:1px solid var(--line);align-items:start;
 }
 .metric-num{
@@ -230,6 +230,13 @@ header{
   padding:.2rem .55rem;border:1px solid var(--line);color:var(--ink-3);background:var(--paper);
 }
 .sec.alt .tag{background:var(--paper-2);}
+.role-sub{
+  display:flex;align-items:center;gap:.7rem;margin:1.7rem 0 .8rem;
+  font-family:var(--mono);font-size:.66rem;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--spruce);
+}
+.role-sub::after{content:'';flex:1;height:1px;background:var(--line);}
+.role-org + .role-sub{margin-top:0;}
 
 /* ── skills ────────────────────────────────────── */
 .skills{border-top:1px solid var(--line);}
@@ -254,6 +261,8 @@ header{
 .project-title{font-family:var(--grotesk);font-weight:700;font-size:1.1rem;line-height:1.3;margin:.6rem 0 .5rem;letter-spacing:-.01em;}
 .project-stack{font-family:var(--mono);font-size:.72rem;color:var(--spruce);margin-bottom:.85rem;line-height:1.6;}
 .project-desc{font-size:.94rem;color:var(--ink-2);}
+.earlier{margin-top:3.5rem;}
+.earlier > .label{display:block;margin-bottom:1rem;}
 
 /* ── education + publication ───────────────────── */
 .edu{display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
@@ -287,7 +296,8 @@ header{
   padding:1rem .25rem;border-bottom:1px solid var(--line);
 }
 .list-name{font-size:.98rem;}
-.list-sub{font-family:var(--mono);font-size:.72rem;color:var(--ink-3);margin-top:.25rem;line-height:1.6;}
+.list-sub{font-family:var(--mono);font-size:.72rem;color:var(--ink-3);margin-top:.25rem;line-height:1.6;overflow-wrap:anywhere;}
+.list-desc{font-size:.9rem;color:var(--ink-2);margin-top:.4rem;}
 .list-meta{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--spruce);white-space:nowrap;}
 .list-meta.pending{color:var(--amber);}
 
@@ -465,8 +475,8 @@ footer{
       <div>
         <div class="hero-eyebrow"><span class="rule"></span><span class="label">Robotics Software &amp; Deployment Engineer</span></div>
         <h1 class="hero-name">Vidyul<br/><span class="mark">Shah</span></h1>
-        <p class="hero-role">I take robotic systems from software into the field — commissioning, calibrating, and keeping humanoid platforms running on site.</p>
-        <p class="hero-desc">Three years across humanoid field deployment, UAV flight control and safety-critical avionics. I write ROS2/C++ on Jetson and embedded Linux, then own installation, diagnostics and recovery where the robots actually work.</p>
+        <p class="hero-role">I build robot software in ROS2 and C++, then take it into the field: commissioning, calibrating and keeping humanoid platforms running on site.</p>
+        <p class="hero-desc">Four-plus years across humanoid autonomy and field deployment, UAV flight control, safety-critical avionics, mobile-robot motion planning and satellite communication software. I write ROS2, C++ and Python on NVIDIA Jetson and embedded Linux, then own installation, diagnostics and recovery where the robots actually work.</p>
         <div class="hero-actions">
           <a class="btn btn-solid" href="mailto:vidyulshah14@outlook.com">Email me</a>
           <a class="btn btn-line" href="https://github.com/vidyulshah" target="_blank" rel="noopener">GitHub ↗</a>
@@ -479,14 +489,15 @@ footer{
           <span class="label">Profile</span>
           <span class="label">Rev. 2026</span>
         </div>
-        <div class="spec-row"><span class="spec-key">Based in</span><span class="spec-val">Bangalore, India</span></div>
-        <div class="spec-row"><span class="spec-key">Now</span><span class="spec-val">Deployment Engineer, <em>Indus International School</em></span></div>
-        <div class="spec-row"><span class="spec-key">Focus</span><span class="spec-val">Field commissioning · Calibration · Humanoid deployment</span></div>
-        <div class="spec-row"><span class="spec-key">Platforms</span><span class="spec-val">NVIDIA Jetson Nano / Xavier / Orin · Embedded Linux</span></div>
+        <div class="spec-row"><span class="spec-key">Based in</span><span class="spec-val">Bengaluru, India · Indian national</span></div>
+        <div class="spec-row"><span class="spec-key">Now</span><span class="spec-val">Robotics Software &amp; Deployment Engineer, <em>Atini Management and Engineering</em></span></div>
+        <div class="spec-row"><span class="spec-key">Focus</span><span class="spec-val">ROS2 autonomy · Motion planning · Field commissioning · Humanoid deployment</span></div>
+        <div class="spec-row"><span class="spec-key">Platforms</span><span class="spec-val">NVIDIA Jetson Nano / Xavier / Orin · Asus NUC · Embedded Linux</span></div>
         <div class="spec-row"><span class="spec-key">Languages</span><span class="spec-val">C++ · Python · Embedded C</span></div>
+        <div class="spec-row"><span class="spec-key">Speaks</span><span class="spec-val">English · Hindi · Gujarati</span></div>
         <div class="spec-row"><span class="spec-key">Education</span><span class="spec-val">MSc Robotics, Heriot-Watt University</span></div>
         <div class="spec-row"><span class="spec-key">Code</span><span class="spec-val"><a class="spec-link" href="https://github.com/vidyulshah" target="_blank" rel="noopener">github.com/vidyulshah ↗</a></span></div>
-        <div class="spec-row"><span class="spec-key">Status</span><span class="spec-val">Open to roles in Europe, North America and Asia, including relocation</span></div>
+        <div class="spec-row"><span class="spec-key">Status</span><span class="spec-val">Open to roles across India, and to relocation across Europe, North America and Asia</span></div>
       </div>
     </div>
   </div>
@@ -494,10 +505,10 @@ footer{
   <div class="telemetry">
     <div class="wrap" style="padding-left:0;padding-right:0;">
       <div class="telemetry-grid">
-        <div class="tele"><div class="tele-num">3+</div><div class="tele-label">Years in robotics</div></div>
+        <div class="tele"><div class="tele-num">4+</div><div class="tele-label">Years in robotics &amp; software</div></div>
         <div class="tele"><div class="tele-num">3×</div><div class="tele-label">UAV test throughput</div></div>
-        <div class="tele"><div class="tele-num">40%</div><div class="tele-label">Faster UAV testing cycles</div></div>
-        <div class="tele"><div class="tele-num">25%</div><div class="tele-label">Faster avionics execution</div></div>
+        <div class="tele"><div class="tele-num">30%</div><div class="tele-label">Lower humanoid system latency</div></div>
+        <div class="tele"><div class="tele-num">40%</div><div class="tele-label">Shorter test &amp; verification cycles</div></div>
       </div>
     </div>
   </div>
@@ -512,29 +523,49 @@ footer{
     </div>
     <div class="about">
       <div class="prose">
-        <p>I work end to end on <strong>robotic systems that have to run in the field</strong> — from ROS2/C++ and NVIDIA Jetson bring-up through installation, commissioning, calibration and live diagnostics. Most of my work sits where software, hardware and customer sites meet.</p>
-        <p>What I bring is <strong>deployment ownership plus engineering depth</strong>. I commission humanoid platforms on site, recover systems under downtime pressure, and still write the ROS modules, flash the board, and debug peripherals over SPI, I²C and CAN. I have also machined physical parts those systems control — including CNC-fabricated humanoid skeletal frames and vacuum-poured silicone dermis.</p>
-        <p>That range comes from humanoid field deployment at Indus International School, UAV flight control at Yottec Systems, and legacy avionics modernisation at Alchemy Techsol. I hold an <strong>MSc in Robotics from Heriot-Watt University</strong> in Edinburgh, with a paper published at ACM ICMI 2021.</p>
+        <p>I work end to end on <strong>robotic systems that have to run in the real world</strong>: ROS2 autonomy software in C++ and Python, NVIDIA Jetson bring-up, then installation, commissioning, calibration and live diagnostics on site. Most of my work sits where software, hardware and customer sites meet.</p>
+        <p>At <strong>Atini Management and Engineering</strong> I architect ROS2 frameworks for humanoid robots and robotic arms, covering MoveIt motion planning, real-time perception, UWB localisation, an OpenAI-powered voice interface and Qt diagnostics, and I own their deployment: commissioning, calibration, field recovery and customer training across India. I have also machined the physical parts those systems control, including CNC-fabricated humanoid skeletal frames and a vacuum-poured silicone dermis.</p>
+        <p>Before that I modernised safety-critical avionics at Alchemy Techsol, built UAV flight-control test systems and a ground control station at Yottec Systems, worked on mobile-robot motion planning at Eternal Robotics, and optimised satellite link-budget software at Asteria Space &amp; Satellites in Edinburgh. I hold an <strong>MSc in Robotics from Heriot-Watt University</strong> and a <strong>B.Tech in Mechatronics from NMIMS</strong>, with a paper published at ACM ICMI 2021.</p>
         <div class="relocate">
-          Open to relocation or opportunities across <strong>Europe · North America · Asia</strong>. Remote roles considered globally.
+          Based in <strong>Bengaluru</strong>. Open to roles in <strong>Bengaluru · Mumbai · Hyderabad · Delhi NCR</strong>, and to relocation across <strong>Europe · North America · Asia</strong>, including Germany, the Netherlands, Singapore, the UK and Canada. Remote roles considered globally.
         </div>
       </div>
       <div class="metrics">
+        <div class="metric">
+          <div class="metric-num">&lt;10 cm</div>
+          <div class="metric-txt">Indoor positioning accuracy from UWB localisation feeding ROS2 navigation and obstacle avoidance on humanoid robots.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">30%</div>
+          <div class="metric-txt">Lower end-to-end humanoid system latency after optimising ROS2 node communication and DDS QoS settings.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">15+</div>
+          <div class="metric-txt">Actuators synchronised with software during assembly and calibration for full-body humanoid motion control.</div>
+        </div>
         <div class="metric">
           <div class="metric-num">3×</div>
           <div class="metric-txt">Higher UAV test throughput after building ROS-enabled automatic test equipment for flight-control verification.</div>
         </div>
         <div class="metric">
           <div class="metric-num">40%</div>
-          <div class="metric-txt">Faster UAV testing through HIL/SIL pipelines integrated with Gazebo and MATLAB/Simulink.</div>
+          <div class="metric-txt">Shorter test cycles, twice: HIL/SIL pipelines with Gazebo and Simulink for UAVs, and hardware-independent ROS verification frameworks for avionics.</div>
         </div>
         <div class="metric">
           <div class="metric-num">25%</div>
           <div class="metric-txt">Faster execution after migrating 10,000+ lines of Ada 95 avionics code into C++ ROS modules.</div>
         </div>
         <div class="metric">
-          <div class="metric-num">5+</div>
-          <div class="metric-txt">Concurrent UAVs monitored in real time via a Qt/PyQt ground control station over MAVLink.</div>
+          <div class="metric-num">66%</div>
+          <div class="metric-txt">Faster satellite link-budget processing at Asteria, with 45% lower operating cost and 3× computational throughput.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">~20%</div>
+          <div class="metric-txt">Lower path-planning latency for mobile and industrial robots using ROS2 motion planning at Eternal Robotics.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">26%</div>
+          <div class="metric-txt">More efficient human–robot handover on the Tiago robot by pairing Darknet YOLO detection with MoveIt arm planning.</div>
         </div>
       </div>
     </div>
@@ -547,6 +578,7 @@ footer{
     <div class="sec-head">
       <span class="label">Experience</span>
       <h2 class="sec-title">Where the work has taken me.</h2>
+      <p class="sec-note">Six roles across humanoid robotics, avionics, UAVs, mobile robots and satellite software.</p>
     </div>
     <div class="roles">
 
@@ -556,8 +588,28 @@ footer{
           <span class="role-now-tag">Current</span>
         </div>
         <div>
-          <h3 class="role-title">Robotics Software and Deployment Engineer</h3>
-          <div class="role-org">Indus International School · Bangalore, India</div>
+          <h3 class="role-title">Robotics Software &amp; Deployment Engineer</h3>
+          <div class="role-org">Atini Management and Engineering · Bangalore, India</div>
+          <div class="role-sub">Software &amp; autonomy</div>
+          <ul>
+            <li>Led end-to-end development of modular ROS2 software frameworks in Python and C++ for humanoid robots and robotic arms, combining motion planning, control and perception into scalable autonomy architectures.</li>
+            <li>Integrated MoveIt motion planning and real-time perception on NVIDIA Jetson Orin, and programmed and deployed embedded robotics applications on NVIDIA Jetson and Asus NUC platforms.</li>
+            <li>Reduced end-to-end system latency by 30% through optimised ROS2 node communication and DDS QoS tuning.</li>
+            <li>Deployed UWB (Ultra-Wideband) indoor localisation with sub-10 cm positioning accuracy, feeding real-time distance and position data into ROS2 nodes for navigation and autonomous obstacle avoidance in dynamic environments.</li>
+            <li>Wrote ROS2 nodes for motion control, inverse kinematics and trajectory execution, and field-tested motion control algorithms in real and simulated environments, tuning balance, responsiveness and energy efficiency.</li>
+            <li>Customised and extended third-party ROS2 packages and control modules to support serial, Ethernet and IP-based sensor and actuator communication across distributed systems.</li>
+            <li>Built an OpenAI-powered natural-language interface through custom ROS2 services, enabling voice-commanded humanoid control without a GUI and linking conversational AI with motion and perception modules.</li>
+            <li>Designed Qt-based user interfaces integrated with ROS2 topics and services for real-time telemetry, diagnostics, system visualisation and operator control.</li>
+            <li>Partnered with electrical, mechanical and AI engineers to integrate machine learning and perception features into the humanoid platform.</li>
+            <li>Wrote technical documentation covering node structures, API interactions and deployment workflows.</li>
+          </ul>
+          <div class="role-sub">Hardware build &amp; integration</div>
+          <ul>
+            <li>Assembled and integrated full humanoid robot systems, covering mechanical build, servo tuning and electronics, and synchronised software with 15+ actuators during assembly and calibration for full-body motion control.</li>
+            <li>Modelled and refined robotic arm assemblies and mechanical subsystems in Fusion 360 with the mechanical team, optimising joint configurations and kinematic precision.</li>
+            <li>Led end-to-end R&amp;D of a high-fidelity humanoid face: CNC-machined skeletal frames, a multi-layer silicone dermis and multi-DoF actuator firmware (see Projects).</li>
+          </ul>
+          <div class="role-sub">Field deployment &amp; commissioning</div>
           <ul>
             <li>Delivered installation, commissioning, and preventive maintenance of humanoid robotic systems and associated automation equipment at customer and institutional sites.</li>
             <li>Diagnosed and resolved mechanical, electrical, software, and communication issues in humanoid robot systems, minimising downtime and improving overall system reliability.</li>
@@ -569,8 +621,7 @@ footer{
             <li>Captured field data, recurring failure modes, and customer feedback; escalated findings to product and engineering teams to drive platform improvements.</li>
           </ul>
           <div class="tags">
-            <span class="tag">Field commissioning</span><span class="tag">Calibration</span><span class="tag">Diagnostics</span>
-            <span class="tag">Hardware bring-up</span><span class="tag">Humanoid robots</span><span class="tag">Customer training</span>
+            <span class="tag">ROS2</span><span class="tag">C++</span><span class="tag">Python</span><span class="tag">MoveIt</span><span class="tag">NVIDIA Jetson Orin</span><span class="tag">UWB</span><span class="tag">DDS QoS</span><span class="tag">Qt</span><span class="tag">OpenAI API</span><span class="tag">Fusion 360</span><span class="tag">Field commissioning</span><span class="tag">Calibration</span><span class="tag">Diagnostics</span><span class="tag">Customer training</span>
           </div>
         </div>
       </article>
@@ -581,12 +632,20 @@ footer{
           <h3 class="role-title">Junior Consultant – Robotics &amp; Embedded Systems</h3>
           <div class="role-org">Alchemy Techsol · Bangalore, India</div>
           <ul>
-            <li>Migrated 10,000+ lines of Ada 95 legacy avionics code to modern C++ ROS modules, improving execution performance by 25% and enabling cross-platform deployment.</li>
+            <li>Migrated 10,000+ lines of Ada 95 legacy avionics code to modern C/C++ ROS modules, improving execution performance by 25%, maintainability and cross-platform deployment.</li>
+            <li>Integrated MIL-STD-1553B, RS-422 and RS-232 legacy protocols into ROS via custom bridge nodes, enabling real-time data transfer and monitoring for safety-critical avionics systems.</li>
+            <li>Reduced verification cycle time by 40% by building hardware-independent simulation and test frameworks within ROS for rapid PoC evaluation, code verification and hardware interface testing.</li>
+            <li>Took part in system-level requirements definition, architecture and interface design, applying ROS/ROS2 concepts for modularity, scalability and inter-node communication.</li>
+            <li>Designed and implemented proof-of-concept robotics and embedded software prototypes using ROS nodes to validate system architecture, communication interfaces and performance requirements.</li>
+            <li>Developed and debugged ROS communication modules and data-handling pipelines (topics, services, message definitions) for inter-process data exchange, logging, storage and diagnostics.</li>
+            <li>Used rqt_graph, rosbag and RViz for debugging, performance evaluation and visualisation of system behaviour.</li>
             <li>Produced OOAD-based system architecture documentation — node graphs, message-flow diagrams, interface specs — adopted as the project's design baseline.</li>
+            <li>Worked with quality and compliance teams so all PoC and production software met software development standards and regulatory requirements.</li>
+            <li>Delivered live technical demonstrations of ROS-integrated systems and PoC prototypes to clients, showing architecture validation and communication robustness.</li>
+            <li>Provided interim managerial support, mentoring junior engineers and organising development activities to keep PoC and software deliveries on time.</li>
           </ul>
           <div class="tags">
-            <span class="tag">ROS</span><span class="tag">C++</span><span class="tag">Ada 95</span>
-            <span class="tag">OOAD</span><span class="tag">Avionics</span>
+            <span class="tag">ROS / ROS2</span><span class="tag">C/C++</span><span class="tag">Ada 95</span><span class="tag">MIL-STD-1553B</span><span class="tag">RS-422 / RS-232</span><span class="tag">OOAD</span><span class="tag">rosbag</span><span class="tag">Avionics</span>
           </div>
         </div>
       </article>
@@ -597,14 +656,63 @@ footer{
           <h3 class="role-title">Application Engineer – UAV Systems</h3>
           <div class="role-org">Yottec Systems · Bangalore, India</div>
           <ul>
-            <li>Designed modular ROS-based software architecture for multi-copter, VTOL, and fixed-wing UAV platforms, covering sensor fusion, telemetry handling, and actuator control.</li>
-            <li>Developed a Qt/PyQt Ground Control Station integrated with PX4/ArduPilot via MAVLink, enabling real-time mission planning and monitoring of 5+ concurrent UAVs.</li>
-            <li>Tripled UAV test throughput by building ROS-enabled Automatic Test Equipment (ATE) for automated verification of flight-control systems.</li>
-            <li>Cut testing time by 40% through HIL and SIL pipelines in ROS, integrated with Gazebo and MATLAB/Simulink for flight-dynamics validation.</li>
+            <li>Designed modular ROS-based software architecture for multi-copter, VTOL, and fixed-wing UAV platforms within the UAV avionics team, building nodes for sensor fusion, telemetry handling, and actuator control.</li>
+            <li>Developed a Qt/PyQt Ground Control Station (Qt Designer and Python) integrated with PX4/ArduPilot via MAVLink and with ROS topics and services, enabling real-time mission planning and monitoring of 5+ concurrent UAVs.</li>
+            <li>Tripled UAV test throughput by building ROS-enabled Automatic Test Equipment (ATE) for automated verification of flight-control systems and onboard software modules.</li>
+            <li>Cut testing time by 40% through HIL and SIL pipelines in ROS, integrated with Gazebo and MATLAB/Simulink to validate flight dynamics, control responses and fault tolerance.</li>
+            <li>Developed, deployed and debugged UAV avionics software on Ubuntu/Linux, and wrote technical documentation covering ROS node architecture, message flow, integration protocols and test procedures.</li>
+            <li>Worked cross-functionally with hardware, avionics and control engineers to align ROS-based software integration with project requirements and deployment timelines.</li>
           </ul>
           <div class="tags">
-            <span class="tag">ROS / ROS2</span><span class="tag">PX4</span><span class="tag">ArduPilot</span><span class="tag">MAVLink</span>
-            <span class="tag">Qt / PyQt</span><span class="tag">HIL / SIL</span><span class="tag">Gazebo</span><span class="tag">Python</span>
+            <span class="tag">ROS / ROS2</span><span class="tag">PX4</span><span class="tag">ArduPilot</span><span class="tag">MAVLink</span><span class="tag">Qt / PyQt</span><span class="tag">HIL / SIL</span><span class="tag">Gazebo</span><span class="tag">MATLAB/Simulink</span><span class="tag">Python</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="role">
+        <div class="role-when"><div class="role-date">Apr 2023 —<br/>Sep 2023</div></div>
+        <div>
+          <h3 class="role-title">Robotics Systems Developer</h3>
+          <div class="role-org">Eternal Robotics · Mumbai, India</div>
+          <ul>
+            <li>Implemented real-time motion planning and trajectory generation for mobile and industrial robots using ROS2, reducing path-planning latency by ~20%.</li>
+            <li>Fused LiDAR, camera, and IMU data for autonomous navigation and object manipulation using ROS sensor-fusion algorithms.</li>
+            <li>Tuned PID controllers and trajectory planners to optimise robot movement precision, stability, and energy efficiency.</li>
+            <li>Built and simulated robotic behaviours with ROS/ROS2, Gazebo and RViz across real-world and virtual environments.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">ROS2</span><span class="tag">Motion planning</span><span class="tag">Trajectory generation</span><span class="tag">Sensor fusion</span><span class="tag">LiDAR</span><span class="tag">IMU</span><span class="tag">PID control</span><span class="tag">Gazebo</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="role">
+        <div class="role-when"><div class="role-date">Mar 2022 —<br/>Mar 2023</div></div>
+        <div>
+          <h3 class="role-title">Software Developer</h3>
+          <div class="role-org">Asteria: Space &amp; Satellites · Edinburgh, UK</div>
+          <ul>
+            <li>Refactored satellite link-budget analysis modules for scalability and maintainability, achieving 66% faster processing, 45% lower operational costs, and 3× computational throughput.</li>
+            <li>Developed optimisation algorithms for satellite communication focused on real-time performance under resource constraints.</li>
+            <li>Drove further development of the company's algorithms and satellite communication software modules, working with clients to make sure the core algorithms met their needs.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Satellite communication</span><span class="tag">Link budget</span><span class="tag">Optimisation algorithms</span><span class="tag">Software refactoring</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="role">
+        <div class="role-when"><div class="role-date">May 2019 —<br/>Aug 2019</div></div>
+        <div>
+          <h3 class="role-title">Embedded Software Engineer (Internship)</h3>
+          <div class="role-org">Lifespark Technologies · Mumbai, India</div>
+          <ul>
+            <li>Built a calibration tool for the TI OPT8241 time-of-flight camera using OpenCV, with a Qt Creator UI visualising amplitude, phase, ambient and 3D point-cloud data.</li>
+            <li>Implemented IMU-based real-time position and orientation tracking algorithms for motion sensors.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">OpenCV</span><span class="tag">Qt Creator</span><span class="tag">ToF camera</span><span class="tag">Point clouds</span><span class="tag">IMU tracking</span>
           </div>
         </div>
       </article>
@@ -625,57 +733,61 @@ footer{
       <div class="skill-row">
         <div class="skill-name">Robotics frameworks</div>
         <div class="chips">
-          <span class="chip key">ROS2</span><span class="chip key">ROS</span><span class="chip">MoveIt</span><span class="chip">Gazebo</span>
-          <span class="chip">RViz</span><span class="chip">tf2</span><span class="chip">Navigation2</span><span class="chip">TensorFlow</span>
+          <span class="chip key">ROS2</span><span class="chip key">ROS</span><span class="chip">MoveIt</span><span class="chip">Gazebo</span><span class="chip">RViz</span><span class="chip">tf2</span><span class="chip">Navigation stack / Nav2</span><span class="chip">rqt / rosbag</span><span class="chip">TensorFlow</span>
         </div>
       </div>
       <div class="skill-row">
         <div class="skill-name">Programming</div>
         <div class="chips">
-          <span class="chip key">C++</span><span class="chip key">Python</span><span class="chip">Embedded C</span>
-          <span class="chip">MATLAB</span><span class="chip">SQL</span><span class="chip">Ada 95</span><span class="chip">RTOS</span>
+          <span class="chip key">C++</span><span class="chip key">Python</span><span class="chip">Embedded C</span><span class="chip">MATLAB</span><span class="chip">SQL</span><span class="chip">Ada 95</span><span class="chip">Data structures</span><span class="chip">RTOS</span>
         </div>
       </div>
       <div class="skill-row">
         <div class="skill-name">Embedded systems</div>
         <div class="chips">
-          <span class="chip key">NVIDIA Jetson</span><span class="chip key">Embedded Linux</span><span class="chip">STM32</span>
-          <span class="chip">Arduino</span><span class="chip">Raspberry Pi</span><span class="chip">SPI / I²C</span><span class="chip">CAN bus</span><span class="chip">FPGA</span>
+          <span class="chip key">NVIDIA Jetson Nano / Xavier / Orin</span><span class="chip key">Embedded Linux</span><span class="chip">Asus NUC</span><span class="chip">STM32</span><span class="chip">Arduino</span><span class="chip">Raspberry Pi</span><span class="chip">FPGA</span><span class="chip">SPI / I²C</span><span class="chip">CAN bus</span><span class="chip">IoT</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Deployment &amp; field ops</div>
+        <div class="chips">
+          <span class="chip key">Field commissioning</span><span class="chip key">Calibration</span><span class="chip">Acceptance testing</span><span class="chip">Preventive maintenance</span><span class="chip">Root-cause diagnostics</span><span class="chip">Hardware bring-up</span><span class="chip">Field recovery</span><span class="chip">Customer training</span>
         </div>
       </div>
       <div class="skill-row">
         <div class="skill-name">Motion &amp; control</div>
         <div class="chips">
-          <span class="chip key">Motion planning</span><span class="chip">Inverse kinematics</span><span class="chip">PID control</span>
-          <span class="chip">Trajectory optimisation</span><span class="chip">Sensor fusion</span><span class="chip">SLAM</span>
+          <span class="chip key">Motion planning</span><span class="chip">Inverse kinematics</span><span class="chip">MoveIt arm planning</span><span class="chip">PID control</span><span class="chip">Trajectory optimisation</span><span class="chip">Sensor fusion</span><span class="chip">SLAM</span><span class="chip">UWB localisation</span>
         </div>
       </div>
       <div class="skill-row">
         <div class="skill-name">UAV systems</div>
         <div class="chips">
-          <span class="chip key">PX4</span><span class="chip">ArduPilot</span><span class="chip">MAVLink</span>
-          <span class="chip">MAVSDK</span><span class="chip">HIL / SIL testing</span><span class="chip">QGroundControl</span>
+          <span class="chip key">PX4</span><span class="chip">ArduPilot</span><span class="chip">Betaflight</span><span class="chip">iNav</span><span class="chip">MAVLink</span><span class="chip">MAVSDK</span><span class="chip">HIL / SIL testing</span><span class="chip">QGroundControl</span>
         </div>
       </div>
       <div class="skill-row">
         <div class="skill-name">Vision &amp; AI</div>
         <div class="chips">
-          <span class="chip key">OpenCV</span><span class="chip">Machine learning</span><span class="chip">OpenAI API</span>
-          <span class="chip">Darknet YOLO</span><span class="chip">NLP</span>
+          <span class="chip key">OpenCV</span><span class="chip">Vision Transformers (ViT)</span><span class="chip">Vision-language models</span><span class="chip">CLIP</span><span class="chip">SAM</span><span class="chip">Object detection &amp; tracking</span><span class="chip">Darknet YOLO</span><span class="chip">Machine learning</span><span class="chip">NLP</span><span class="chip">OpenAI API</span>
         </div>
       </div>
       <div class="skill-row">
         <div class="skill-name">Protocols</div>
         <div class="chips">
-          <span class="chip">MIL-STD-1553B</span><span class="chip">RS-232 / RS-422</span><span class="chip">Ethernet</span>
-          <span class="chip">UDP / TCP</span><span class="chip">CAN bus</span>
+          <span class="chip">MIL-STD-1553B</span><span class="chip">RS-232 / RS-422</span><span class="chip">Ethernet</span><span class="chip">UDP / TCP</span><span class="chip">CAN bus</span><span class="chip">DDS (QoS tuning)</span>
         </div>
       </div>
       <div class="skill-row">
-        <div class="skill-name">Tools &amp; CAD</div>
+        <div class="skill-name">CAD &amp; simulation</div>
         <div class="chips">
-          <span class="chip key">Linux / Ubuntu</span><span class="chip">Git</span><span class="chip">Qt / PyQt</span><span class="chip">SolidWorks</span>
-          <span class="chip">Catia V5</span><span class="chip">RobotStudio</span><span class="chip">Ansys FEA</span><span class="chip">CI/CD</span>
+          <span class="chip">SolidWorks</span><span class="chip">Catia V5</span><span class="chip">Fusion 360</span><span class="chip">AutoCAD</span><span class="chip">RobotStudio</span><span class="chip">Ansys FEA</span><span class="chip">MATLAB / Simulink</span><span class="chip">CAD / CAM</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Tools &amp; practices</div>
+        <div class="chips">
+          <span class="chip key">Linux / Ubuntu</span><span class="chip">Git</span><span class="chip">Qt / PyQt</span><span class="chip">CI/CD</span><span class="chip">OOAD</span><span class="chip">Unit testing</span><span class="chip">Technical documentation</span><span class="chip">RDBMS</span>
         </div>
       </div>
     </div>
@@ -715,6 +827,35 @@ footer{
         <p class="project-desc">Improved handover efficiency by 26% with a ROS system pairing Darknet YOLO real-time object detection with MoveIt arm planning, producing smooth human-to-robot object transfer for assistive applications.</p>
       </article>
     </div>
+    <div class="earlier">
+      <span class="label">Earlier projects</span>
+      <div class="list">
+        <div class="list-item">
+          <div>
+            <div class="list-name">Human–robot interaction with the MiRo robot</div>
+            <div class="list-sub">ROS · Gazebo · Robot sensors · MSc</div>
+            <p class="list-desc">Built a ROS and Gazebo environment where MiRo uses its onboard sensors to interact with a ball while a human reacts to its actions.</p>
+          </div>
+          <div class="list-meta">Sep — Dec 2020</div>
+        </div>
+        <div class="list-item">
+          <div>
+            <div class="list-name">Mobile-controlled robotic arm</div>
+            <div class="list-sub">Arduino · Mechanical assembly · B.Tech</div>
+            <p class="list-desc">Designed and built a phone-controlled robotic arm, covering the mechanical assembly and the Arduino programming.</p>
+          </div>
+          <div class="list-meta">Jul 2017 — Apr 2018</div>
+        </div>
+        <div class="list-item">
+          <div>
+            <div class="list-name">Inventory management system</div>
+            <div class="list-sub">C++ · Object-oriented programming</div>
+            <p class="list-desc">Inventory software written in C++ using OOP concepts, with user login and a "thought of the day" message.</p>
+          </div>
+          <div class="list-meta">Mar 2015 — Mar 2016</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -727,40 +868,6 @@ footer{
       <p class="sec-note">Flip a card to read what each project does.</p>
     </div>
     <div class="gh-grid">
-
-      <div class="gh-card-wrap">
-        <div class="gh-card">
-          <div class="gh-front">
-            <div class="gh-top">
-              <span class="gh-tag">Computer Vision</span>
-              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
-            </div>
-            <div class="gh-name">Satellite Image Classification</div>
-            <div class="gh-hint">Hover to flip ↗</div>
-          </div>
-          <div class="gh-back">
-            <p class="gh-desc">Land-use classification with Vision Transformer (ViT) fine-tuned on EuroSAT RGB. Transfer learning via PyTorch &amp; HuggingFace; multi-class output across 10 terrain categories.</p>
-            <a class="gh-link" href="https://github.com/vidyulshah/Satellite-Image-Classification" target="_blank" rel="noopener">View on GitHub ↗</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="gh-card-wrap">
-        <div class="gh-card">
-          <div class="gh-front">
-            <div class="gh-top">
-              <span class="gh-tag">Object Detection</span>
-              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
-            </div>
-            <div class="gh-name">TomaTron</div>
-            <div class="gh-hint">Hover to flip ↗</div>
-          </div>
-          <div class="gh-back">
-            <p class="gh-desc">Real-time tomato detection and ripeness classification with DETR (ResNet-50). Classifies Ripe, Semi-ripe and Unripe stages in images and live video via PyTorch and OpenCV.</p>
-            <a class="gh-link" href="https://github.com/vidyulshah/TomaTron" target="_blank" rel="noopener">View on GitHub ↗</a>
-          </div>
-        </div>
-      </div>
 
       <div class="gh-card-wrap">
         <div class="gh-card">
@@ -792,6 +899,125 @@ footer{
           <div class="gh-back">
             <p class="gh-desc">Autonomous pick-and-place pipeline for a Franka Panda in PyBullet. Finite-state machine, overhead camera detection, IK-based grasping, YAML config, and per-pick CSV metrics.</p>
             <a class="gh-link" href="https://github.com/vidyulshah/pybullet-pick-place" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gh-card-wrap">
+        <div class="gh-card">
+          <div class="gh-front">
+            <div class="gh-top">
+              <span class="gh-tag">Path Planning</span>
+              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+            </div>
+            <div class="gh-name">TurtleBot3 A* Navigation</div>
+            <div class="gh-hint">Hover to flip ↗</div>
+          </div>
+          <div class="gh-back">
+            <p class="gh-desc">ROS 2 Humble A* local planner for TurtleBot3. Builds an inflated occupancy grid from lidar, replans when the path is blocked, smooths it and tracks it with pure pursuit.</p>
+            <a class="gh-link" href="https://github.com/vidyulshah/tb3_astar_nav" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gh-card-wrap">
+        <div class="gh-card">
+          <div class="gh-front">
+            <div class="gh-top">
+              <span class="gh-tag">ROS 2 Sim</span>
+              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+            </div>
+            <div class="gh-name">TurtleBot3 Dynamic World</div>
+            <div class="gh-hint">Hover to flip ↗</div>
+          </div>
+          <div class="gh-back">
+            <p class="gh-desc">ROS 2 workspace that puts TurtleBot3 in a walled Gazebo arena with actors moving on waypoint loops, plus go-to-goal and A* nodes for testing planners against moving obstacles.</p>
+            <a class="gh-link" href="https://github.com/vidyulshah/dynamic_map_turtlebot3_ws" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gh-card-wrap">
+        <div class="gh-card">
+          <div class="gh-front">
+            <div class="gh-top">
+              <span class="gh-tag">Robotics Sim</span>
+              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+            </div>
+            <div class="gh-name">EKF GPS Visual Odometry Fusion</div>
+            <div class="gh-hint">Hover to flip ↗</div>
+          </div>
+          <div class="gh-back">
+            <p class="gh-desc">Extended Kalman Filter fusing monocular visual odometry with GPS for outdoor 2D robot localisation (ROS Noetic).</p>
+            <a class="gh-link" href="https://github.com/vidyulshah/EKF-GPS-Visual-Odometry-Fusion" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gh-card-wrap">
+        <div class="gh-card">
+          <div class="gh-front">
+            <div class="gh-top">
+              <span class="gh-tag">LLM · Speech</span>
+              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+            </div>
+            <div class="gh-name">EagleGD Group Discussion</div>
+            <div class="gh-hint">Hover to flip ↗</div>
+          </div>
+          <div class="gh-back">
+            <p class="gh-desc">Qt 6 / C++ classroom app on local Ollama LLMs: whisper.cpp speech input with barge-in, sentence-streamed Piper TTS, and BM25 grounding in curriculum unit packs.</p>
+            <a class="gh-link" href="https://github.com/vidyulshah/IB_Group_Discussion" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gh-card-wrap">
+        <div class="gh-card">
+          <div class="gh-front">
+            <div class="gh-top">
+              <span class="gh-tag">LLM · Desktop</span>
+              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+            </div>
+            <div class="gh-name">Qt Ollama Chatbot</div>
+            <div class="gh-hint">Hover to flip ↗</div>
+          </div>
+          <div class="gh-back">
+            <p class="gh-desc">ChatGPT-style C++ / Qt 6 desktop client for local Ollama models, with streaming replies, a model picker, word limits, whisper.cpp speech-to-text and Piper text-to-speech.</p>
+            <a class="gh-link" href="https://github.com/vidyulshah/Qt-based-Ollama-Chatbot" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gh-card-wrap">
+        <div class="gh-card">
+          <div class="gh-front">
+            <div class="gh-top">
+              <span class="gh-tag">Computer Vision</span>
+              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+            </div>
+            <div class="gh-name">Satellite Image Classification</div>
+            <div class="gh-hint">Hover to flip ↗</div>
+          </div>
+          <div class="gh-back">
+            <p class="gh-desc">Land-use classification with Vision Transformer (ViT) fine-tuned on EuroSAT RGB. Transfer learning via PyTorch &amp; HuggingFace; multi-class output across 10 terrain categories.</p>
+            <a class="gh-link" href="https://github.com/vidyulshah/Satellite-Image-Classification" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gh-card-wrap">
+        <div class="gh-card">
+          <div class="gh-front">
+            <div class="gh-top">
+              <span class="gh-tag">Object Detection</span>
+              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+            </div>
+            <div class="gh-name">TomaTron</div>
+            <div class="gh-hint">Hover to flip ↗</div>
+          </div>
+          <div class="gh-back">
+            <p class="gh-desc">Real-time tomato detection and ripeness classification with DETR (ResNet-50). Classifies Ripe, Semi-ripe and Unripe stages in images and live video via PyTorch and OpenCV.</p>
+            <a class="gh-link" href="https://github.com/vidyulshah/TomaTron" target="_blank" rel="noopener">View on GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -847,23 +1073,6 @@ footer{
         </div>
       </div>
 
-      <div class="gh-card-wrap">
-        <div class="gh-card">
-          <div class="gh-front">
-            <div class="gh-top">
-              <span class="gh-tag">Robotics Sim</span>
-              <svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
-            </div>
-            <div class="gh-name">EKF GPS Visual Odometry Fusion</div>
-            <div class="gh-hint">Hover to flip ↗</div>
-          </div>
-          <div class="gh-back">
-            <p class="gh-desc">Extended Kalman Filter fusing monocular visual odometry with GPS for outdoor 2D robot localisation (ROS Noetic).</p>
-            <a class="gh-link" href="https://github.com/vidyulshah/EKF-GPS-Visual-Odometry-Fusion" target="_blank" rel="noopener">View on GitHub ↗</a>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -887,7 +1096,7 @@ footer{
       <div class="edu-item">
         <h3 class="edu-degree">B.Tech Mechatronics Engineering</h3>
         <div class="edu-school">SVKM's NMIMS · Mumbai, India</div>
-        <div class="edu-date">Jul 2016 — May 2020</div>
+        <div class="edu-date">Jul 2016 — Aug 2020</div>
         <p class="edu-desc">Interdisciplinary programme across mechanical, electronics, computing and control engineering, with core work in kinematics, dynamics modelling, sensor systems and embedded computing.</p>
         <div class="edu-line"><span>Cultural fest — stage &amp; sound committee</span><span>Member</span></div>
         <div class="edu-line"><span>Placement co-coordinator</span><span>Role</span></div>
@@ -922,6 +1131,10 @@ footer{
           <h2 class="sec-title" style="font-size:1.6rem;">Certifications.</h2>
         </div>
         <div class="list">
+          <div class="list-item">
+            <div><div class="list-name">Vision Transformers, VLMs, Image Classification, SAM, CLIP, Object Detection &amp; Tracking</div><div class="list-sub">Udemy · Credential ID 9de3e86c-c097-4dd2-af7d-25015ceb2775</div></div>
+            <div class="list-meta">Aug 2026</div>
+          </div>
           <div class="list-item">
             <div><div class="list-name">NVIDIA Jetson AI Specialist</div><div class="list-sub">NVIDIA Developer Program</div></div>
             <div class="list-meta pending">In progress</div>
@@ -971,7 +1184,7 @@ footer{
   <div class="wrap">
     <span class="label">Contact</span>
     <h2 class="contact-title">Let's build something<br/><em>that moves.</em></h2>
-    <p class="contact-sub">Available for robotics software, field deployment and embedded systems roles, in Bangalore or on relocation across Europe, North America and Asia. The fastest way to reach me is email.</p>
+    <p class="contact-sub">Available for robotics software, autonomy, field deployment and embedded systems roles in Bengaluru, Mumbai, Hyderabad or Delhi NCR, or on relocation across Europe, North America and Asia. The fastest way to reach me is email.</p>
     <div class="contact-links">
       <a class="clink" href="mailto:vidyulshah14@outlook.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -997,7 +1210,7 @@ footer{
 <footer>
   <div class="wrap foot">
     <span>© 2026 Vidyul Shah</span>
-    <span>Robotics Software Engineer · Bangalore, India</span>
+    <span>Robotics Software &amp; Deployment Engineer · Bengaluru, India</span>
   </div>
 </footer>
 
